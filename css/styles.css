@@ -261,7 +261,7 @@ ul { list-style: none; }
 }
 
 .hero-bg {
-  background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.8)), url('../img/hero.webp') center/cover no-repeat;
+  background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.8)), url('../img/Hutch-hero.JPG') center/cover no-repeat;
   color: var(--white);
   padding: 72px 48px;
   border-radius: 16px;
