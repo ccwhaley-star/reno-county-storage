@@ -293,6 +293,12 @@ ul { list-style: none; }
   font-weight: 600;
   margin-bottom: 20px;
   border: 1px solid rgba(255, 88, 41, 0.3);
+  transition: background var(--transition), border-color var(--transition);
+}
+
+a.hero-badge:hover {
+  background: rgba(255, 88, 41, 0.3);
+  border-color: rgba(255, 88, 41, 0.5);
 }
 
 .hero h1,
@@ -396,6 +402,10 @@ ul { list-style: none; }
 
 .section-light {
   background: var(--light);
+}
+
+.section-light + .section-light {
+  padding-top: 0;
 }
 
 .section-dark {
@@ -851,7 +861,7 @@ ul { list-style: none; }
 }
 
 .kssoa-badge {
-  height: 60px;
+  height: 80px;
   width: auto;
   border-radius: var(--radius);
 }
@@ -1729,6 +1739,10 @@ ul { list-style: none; }
   .hero h1,
   .hero .hero-heading {
     font-size: 1.8rem;
+  }
+
+  .hero-subtitle {
+    display: none;
   }
 
   .military-banner-wrapper {
