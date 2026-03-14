@@ -1,0 +1,9 @@
+{
+  "name": "reno-county-storage",
+  "version": "1.0.0",
+  "description": "Reno County Storage website — self storage in Hutchinson & South Hutchinson, KS",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  }
+}
