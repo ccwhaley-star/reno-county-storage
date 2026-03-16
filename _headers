@@ -4,7 +4,3 @@
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-
-# Block search engines from indexing the Netlify staging subdomain
-https://renocountystorage.netlify.app/*
-  X-Robots-Tag: noindex
