@@ -587,9 +587,9 @@ a.hero-badge:hover {
   align-items: center;
   justify-content: center;
   gap: 32px;
-  margin-top: 48px;
-  padding-top: 32px;
-  border-top: 1px solid var(--border);
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
 }
 
 .google-rating {
