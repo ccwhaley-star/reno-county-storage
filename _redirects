@@ -1,0 +1,6 @@
+# Legacy URL redirects
+/locations                                    /#locations    301
+/service-areas                                /              301
+/service-areas/reno-county-ks                 /              301
+/service-areas/reno-county-ks/nickerson       /              301
+/service-areas/reno-county-ks/south-hutchinson  /            301
