@@ -24,27 +24,63 @@ const MIME_TYPES = {
   '.txt': 'text/plain',
 };
 
-const server = http.createServer((req, res) => {
-  let urlPath = (req.url === '/' ? '/index.html' : req.url).split('?')[0];
-  let filePath = path.join(BASE_DIR, urlPath);
+const SECURITY_HEADERS = {
+  'X-Content-Type-Options': 'nosniff',
+  'X-Frame-Options': 'SAMEORIGIN',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+};
 
-  const ext = path.extname(filePath).toLowerCase();
-  const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+const server = http.createServer((req, res) => {
+  let urlPath = decodeURIComponent(req.url.split('?')[0]);
+
+  // Redirect .html URLs to clean extensionless URLs (301)
+  if (urlPath.endsWith('.html')) {
+    const clean = urlPath === '/index.html' ? '/' : urlPath.slice(0, -5);
+    res.writeHead(301, { 'Location': clean, ...SECURITY_HEADERS });
+    res.end();
+    return;
+  }
+
+  // Resolve clean URLs: try appending .html for extensionless paths
+  let filePath;
+  if (urlPath === '/') {
+    filePath = path.join(BASE_DIR, 'index.html');
+  } else {
+    const ext = path.extname(urlPath).toLowerCase();
+    if (ext) {
+      // Has a file extension — serve directly (css, js, img, etc.)
+      filePath = path.normalize(path.join(BASE_DIR, urlPath));
+    } else {
+      // No extension — try .html
+      filePath = path.normalize(path.join(BASE_DIR, urlPath + '.html'));
+    }
+  }
+
+  // Prevent directory traversal
+  if (!filePath.startsWith(BASE_DIR)) {
+    res.writeHead(403, { 'Content-Type': 'text/plain', ...SECURITY_HEADERS });
+    res.end('Forbidden');
+    return;
+  }
+
+  const resolvedExt = path.extname(filePath).toLowerCase();
+  const contentType = MIME_TYPES[resolvedExt] || 'application/octet-stream';
 
   fs.readFile(filePath, (err, content) => {
     if (err) {
-      if (err.code === 'ENOENT') {
+      if (err.code === 'ENOENT' || err.code === 'EISDIR') {
         const notFoundPath = path.join(BASE_DIR, '404.html');
         fs.readFile(notFoundPath, (err404, content404) => {
-          res.writeHead(404, { 'Content-Type': 'text/html' });
+          res.writeHead(404, { 'Content-Type': 'text/html', ...SECURITY_HEADERS });
           res.end(err404 ? '404 Not Found' : content404);
         });
       } else {
-        res.writeHead(500);
+        res.writeHead(500, { 'Content-Type': 'text/plain', ...SECURITY_HEADERS });
         res.end('Internal Server Error');
       }
     } else {
-      res.writeHead(200, { 'Content-Type': contentType });
+      res.writeHead(200, { 'Content-Type': contentType, ...SECURITY_HEADERS });
       res.end(content);
     }
   });
