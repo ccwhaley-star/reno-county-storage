@@ -1941,7 +1941,7 @@ a.hero-badge:hover {
 .phone-fab {
   position: fixed;
   bottom: 24px;
-  right: 24px;
+  right: 16px;
   width: 56px;
   height: 56px;
   background: var(--orange);
