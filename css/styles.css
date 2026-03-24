@@ -1937,6 +1937,24 @@ a.hero-badge:hover {
   font-weight: 500;
 }
 
+.section-breadcrumb {
+  padding: 16px 0 0;
+}
+
+.security-image-wrap {
+  margin-top: 2.5rem;
+}
+
+/* --- Security Page --- */
+.security-hero-img {
+  width: 100%;
+  aspect-ratio: 16/7;
+  object-fit: cover;
+  object-position: 28% 42%;
+  border-radius: 12px;
+  display: block;
+}
+
 /* --- Phone FAB --- */
 .phone-fab {
   position: fixed;
