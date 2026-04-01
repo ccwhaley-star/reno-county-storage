@@ -334,7 +334,7 @@ ul { list-style: none; }
 }
 
 .hero-bg {
-  background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.8)), url('../img/Hutch-hero.JPG') center/cover no-repeat;
+  background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.8));
   color: var(--white);
   padding: 72px 48px;
   border-radius: 16px;
@@ -344,8 +344,13 @@ ul { list-style: none; }
   margin: 0 auto;
 }
 
-.hero-alt .hero-bg {
-  background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.8)), url('../img/s-hutch-hero.webp') center/cover no-repeat;
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
 .hero-inner {
@@ -960,6 +965,7 @@ a.hero-badge:hover {
   border-radius: var(--radius);
 }
 
+.footer h3,
 .footer h4 {
   font-size: 0.9rem;
   font-weight: 700;
@@ -983,6 +989,7 @@ a.hero-badge:hover {
   color: var(--orange);
 }
 
+.footer h3 + ul + h3,
 .footer h4 + ul + h4 {
   margin-top: 20px;
 }
@@ -994,7 +1001,7 @@ a.hero-badge:hover {
   justify-content: space-between;
   align-items: center;
   font-size: 0.85rem;
-  color: #666;
+  color: #aaa;
 }
 
 /* --- FAQ Page --- */
