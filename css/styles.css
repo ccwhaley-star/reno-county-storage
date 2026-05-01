@@ -737,6 +737,26 @@ a.hero-badge:hover {
   border-radius: 12px;
   padding: 28px;
   transition: all var(--transition);
+  position: relative;
+}
+
+.promo-stamp {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #dc2626;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 6px 12px;
+  border-radius: 6px;
+  z-index: 2;
+  box-shadow: 0 2px 10px rgba(220, 38, 38, 0.4);
+  line-height: 1;
+  transform: rotate(3deg);
+  border: 2px solid #fff;
 }
 
 .location-card:hover {
