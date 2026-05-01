@@ -25,14 +25,14 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Self Storage in South Hutchinson, KS | From $55/mo</title>
-  <meta name="description" content="Drive-up storage units in South Hutchinson starting at $55/mo. Free lock, 24/7 access, no hidden fees. Rent online in minutes.">
+  <title>75% Off Storage Units in South Hutchinson, KS | Limited Time</title>
+  <meta name="description" content="75% off your first 2 months on select storage units in South Hutchinson. Drive-up access, free lock, 24/7 cameras. No contracts. Rent online today.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://www.renocountystorage.com/south-hutchinson-storage">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
-  <meta property="og:title" content="Self Storage in South Hutchinson, KS | From $55/mo">
-  <meta property="og:description" content="Drive-up storage units in South Hutchinson starting at $55/mo. Free lock, 24/7 access, no hidden fees. Rent online in minutes.">
+  <meta property="og:title" content="75% Off Storage Units in South Hutchinson, KS | Limited Time">
+  <meta property="og:description" content="75% off your first 2 months on storage units in South Hutchinson. Drive-up access, free lock, 24/7 cameras. No contracts.">
   <meta property="og:url" content="https://www.renocountystorage.com/south-hutchinson-storage">
   <meta property="og:image" content="https://www.renocountystorage.com/img/s-hutch-hero.webp">
   <meta property="og:image:width" content="1200">
@@ -40,8 +40,8 @@
   <meta property="og:image:alt" content="Self storage facility in South Hutchinson, Kansas">
   <meta property="og:site_name" content="Reno County Storage">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Self Storage in South Hutchinson, KS | From $55/mo">
-  <meta name="twitter:description" content="Drive-up storage units in South Hutchinson starting at $55/mo. Free lock, 24/7 access, no hidden fees.">
+  <meta name="twitter:title" content="75% Off Storage Units in South Hutchinson, KS | Limited Time">
+  <meta name="twitter:description" content="75% off your first 2 months on storage units in South Hutchinson. Drive-up access, free lock, 24/7 cameras.">
   <meta name="twitter:image" content="https://www.renocountystorage.com/img/s-hutch-hero.webp">
   <meta name="twitter:image:alt" content="Reno County Storage facility in Hutchinson, Kansas">
   <meta name="geo.region" content="US-KS">
@@ -355,7 +355,7 @@
 
     .units-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
     .unit-card {
@@ -366,6 +366,13 @@
       transition: box-shadow 0.2s, border-color 0.2s;
     }
     .unit-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.08); border-color: var(--orange); }
+    .unit-card-img {
+      width: 100px;
+      height: auto;
+      float: right;
+      margin: 0 0 8px 12px;
+      border-radius: 8px;
+    }
     .unit-card-top {
       padding: 18px 20px 14px;
       display: flex;
@@ -417,12 +424,30 @@
       border: 1px solid var(--border);
     }
     .unit-waitlist:hover { background: var(--border); color: var(--dark); }
+    .unit-promo {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+      padding: 8px 12px;
+      margin-bottom: 12px;
+      margin-right: 120px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #166534;
+      text-align: center;
+    }
+    .unit-price-original {
+      font-size: 0.85rem;
+      color: var(--gray);
+      text-decoration: line-through;
+      font-weight: 500;
+    }
 
 
     /* ── Reviews ── */
     .reviews-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
     .review-card {
@@ -515,12 +540,13 @@
       .features-strip { grid-template-columns: 1fr 1fr; gap: 16px; }
       .hero-buttons { flex-direction: column; }
       .hero-buttons .btn { width: 100%; }
+      .units-grid { grid-template-columns: 1fr; }
     }
 
     /* ── Phone FAB ── */
     .phone-fab {
       position: fixed;
-      bottom: 24px;
+      bottom: 80px;
       right: 24px;
       width: 56px; height: 56px;
       border-radius: 50%;
@@ -543,7 +569,7 @@
 
   <!-- Urgency Bar -->
   <div class="top-bar">
-    <span>Under New Management</span> &mdash; Limited units available at the South Hutchinson location
+    <span>&#127881; 75% Off Your First 2 Months</span> &mdash; Limited Time Offer at the South Hutchinson Location
   </div>
 
   <!-- Minimal Header -->
@@ -559,7 +585,6 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
             <span class="lp-phone-text">(620) 662-7336</span>
           </a>
-          <a href="https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent" onclick="return gtag_report_conversion('https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent');" class="btn btn-primary btn-sm">Rent Now</a>
         </div>
       </div>
     </div>
@@ -574,12 +599,13 @@
         <div>
           <div class="hero-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            Move In Today
+            Limited Time &mdash; 75% Off First 2 Months
           </div>
-          <h1>Storage Units in <em>South Hutchinson</em> from $55/mo</h1>
-          <p class="hero-sub">Drive-up access, 24/7 security cameras, free lock included. No long-term contracts, no hidden fees. Rent online and move in today.</p>
+          <h1>Storage Units in <em>South Hutchinson</em></h1>
+          <p class="hero-sub">Get 75% off your first 2 months on select units at the South Hutchinson location. Rent online and move in today.</p>
+          <p class="hero-sub" style="font-size:0.9rem;margin-bottom:28px;opacity:0.85;"><a href="https://www.google.com/maps/search/?api=1&query=712+N+Walnut+St,+South+Hutchinson,+KS+67505" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.85);text-decoration:none;display:inline-flex;align-items:center;gap:6px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;opacity:0.7;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> 712 N. Walnut Street, South Hutchinson, Kansas 67505</a></p>
           <div class="hero-buttons">
-            <a href="https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent" onclick="return gtag_report_conversion('https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent');" class="btn btn-primary">Rent a Unit &rarr;</a>
+            <a href="https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent" onclick="return gtag_report_conversion('https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent');" class="btn btn-primary">Claim Your Deal &rarr;</a>
             <a href="#units" class="btn btn-secondary">See Pricing</a>
           </div>
           <div class="hero-trust">
@@ -604,146 +630,94 @@
 
         <!-- Quick Quote Card -->
         <div class="hero-form-card">
-          <h2>Get Your Unit</h2>
-          <p class="form-sub">Select a size to see pricing. Move in today.</p>
+          <h2>Get 75% Off Your First 2 Months</h2>
+          <p class="form-sub">Select a size to see pricing. Limited time offer.</p>
           <div class="form-group">
             <label class="form-label" for="unit-size">Unit Size</label>
             <select class="form-select" id="unit-size">
-              <option value="55">5x10 &mdash; Large Closet (50 sq ft)</option>
+              <option value="55" selected>5x10 &mdash; Large Closet (50 sq ft)</option>
               <option value="65">10x10 &mdash; Bedroom (100 sq ft)</option>
               <option value="75">10x15 &mdash; Large Bedroom (150 sq ft)</option>
-              <option value="105" selected>10x20 &mdash; Garage (200 sq ft)</option>
-              <option value="190">15x30 &mdash; Large House (450 sq ft)</option>
-              <option value="250">15x40 &mdash; Warehouse (600 sq ft)</option>
-              <option value="350">20x40 &mdash; Industrial (800 sq ft)</option>
+              <option value="105">10x20 &mdash; Garage (200 sq ft)</option>
             </select>
           </div>
           <div class="form-price-display">
-            <div class="form-price-amount" id="price-display">$105</div>
-            <div class="form-price-mo">per month &bull; no contracts</div>
+            <div class="form-price-regular" id="price-regular" style="font-size:0.9rem;color:var(--gray);text-decoration:line-through;">$55/mo</div>
+            <div class="form-price-amount" id="price-display" style="color:var(--green);">$13.75/mo</div>
+            <div class="form-price-mo">for your first 2 months &bull; then $55/mo</div>
           </div>
-          <a href="https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent" onclick="return gtag_report_conversion('https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent');" class="btn btn-primary form-cta">Rent This Unit &rarr;</a>
-          <p class="form-note">10% military discount available &bull; Free lock included</p>
+          <a href="https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent" onclick="return gtag_report_conversion('https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent');" class="btn btn-primary form-cta">Claim This Deal &rarr;</a>
+          <p class="form-note">10% military discount also available &bull; Free lock included</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Social Proof Bar -->
-  <div class="proof-bar">
-    <div class="container">
-      <div class="proof-bar-inner">
-        <div class="proof-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <span><strong>4.1</strong> stars on Google</span>
-        </div>
-        <div class="proof-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-          <span><strong>Locally</strong> owned &amp; operated</span>
-        </div>
-        <div class="proof-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <span><strong>24/7</strong> security cameras</span>
-        </div>
-        <div class="proof-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          <span><strong>Rent online</strong> in 5 min</span>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Units -->
   <section class="section" id="units">
     <div class="container">
       <span class="section-label">Pricing</span>
       <h2>Choose Your Unit Size</h2>
-      <p class="section-desc">All units are insulated, drive-up accessible, and monitored 24/7. Rent online and move in immediately.</p>
+      <p class="section-desc">All units include drive-up access and insulated walls. Rent online and move in the same day.</p>
 
       <div class="units-grid">
         <div class="unit-card">
           <div class="unit-card-top">
             <div><div class="unit-size">5&times;10</div><div class="unit-label">Large Closet</div><div class="unit-sqft">50 sq ft</div></div>
-            <div><div class="unit-price">$55</div><span class="unit-price-mo">/month</span></div>
+            <div><div class="unit-price-original">$55</div><div class="unit-price">$13.75</div><span class="unit-price-mo">/mo for 2 mo</span></div>
           </div>
           <div class="unit-card-body">
+            <img src="img/unit-5x10.webp" alt="5x10 storage unit" class="unit-card-img" loading="lazy" width="100" height="94">
+            <div class="unit-promo">75% Off First 2 Months</div>
             <p class="unit-desc">Bed frame, couch, and washing machine with room to spare.</p>
-            <div class="unit-tags"><span class="unit-tag">Insulated</span><span class="unit-tag">24/7 Camera</span><span class="unit-tag unit-tag-urgent">Only 3 Left</span></div>
-            <a href="https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent" onclick="return gtag_report_conversion('https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent');" class="unit-rent">Rent Now</a>
+            <div class="unit-tags"><span class="unit-tag unit-tag-urgent">Only 3 Left</span></div>
+            <a href="https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent" onclick="return gtag_report_conversion('https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent');" class="unit-rent">Claim Deal</a>
           </div>
         </div>
 
         <div class="unit-card">
           <div class="unit-card-top">
             <div><div class="unit-size">10&times;10</div><div class="unit-label">Average Bedroom</div><div class="unit-sqft">100 sq ft</div></div>
-            <div><div class="unit-price">$65</div><span class="unit-price-mo">/month</span></div>
+            <div><div class="unit-price-original">$65</div><div class="unit-price">$16.25</div><span class="unit-price-mo">/mo for 2 mo</span></div>
           </div>
           <div class="unit-card-body">
+            <img src="img/unit-10x10.webp" alt="10x10 storage unit" class="unit-card-img" loading="lazy" width="100" height="84">
+            <div class="unit-promo">75% Off First 2 Months</div>
             <p class="unit-desc">Larger cabinets and several appliances. Secure gate access.</p>
-            <div class="unit-tags"><span class="unit-tag">Drive-Up</span><span class="unit-tag">Secure Gate</span><span class="unit-tag unit-tag-avail">Available</span></div>
-            <a href="https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent" onclick="return gtag_report_conversion('https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent');" class="unit-rent">Rent Now</a>
+            <div class="unit-tags"><span class="unit-tag unit-tag-avail">Available</span></div>
+            <a href="https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent" onclick="return gtag_report_conversion('https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent');" class="unit-rent">Claim Deal</a>
           </div>
         </div>
 
         <div class="unit-card">
           <div class="unit-card-top">
             <div><div class="unit-size">10&times;15</div><div class="unit-label">Large Bedroom</div><div class="unit-sqft">150 sq ft</div></div>
-            <div><div class="unit-price">$75</div><span class="unit-price-mo">/month</span></div>
+            <div><div class="unit-price-original">$75</div><div class="unit-price">$18.75</div><span class="unit-price-mo">/mo for 2 mo</span></div>
           </div>
           <div class="unit-card-body">
+            <img src="img/unit-10x15.webp" alt="10x15 storage unit" class="unit-card-img" loading="lazy" width="100" height="75">
+            <div class="unit-promo">75% Off First 2 Months</div>
             <p class="unit-desc">Fits a one-bedroom house: table, couch, cabinets, appliances.</p>
-            <div class="unit-tags"><span class="unit-tag">Drive-Up</span><span class="unit-tag">Insulated</span><span class="unit-tag unit-tag-avail">Available</span></div>
-            <a href="https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent" onclick="return gtag_report_conversion('https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent');" class="unit-rent">Rent Now</a>
+            <div class="unit-tags"><span class="unit-tag unit-tag-avail">Available</span></div>
+            <a href="https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent" onclick="return gtag_report_conversion('https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent');" class="unit-rent">Claim Deal</a>
           </div>
         </div>
 
         <div class="unit-card">
           <div class="unit-card-top">
             <div><div class="unit-size">10&times;20</div><div class="unit-label">Single Car Garage</div><div class="unit-sqft">200 sq ft</div></div>
-            <div><div class="unit-price">$105</div><span class="unit-price-mo">/month</span></div>
+            <div><div class="unit-price-original">$105</div><div class="unit-price">$26.25</div><span class="unit-price-mo">/mo for 2 mo</span></div>
           </div>
           <div class="unit-card-body">
+            <img src="img/unit-10x20.webp" alt="10x20 storage unit" class="unit-card-img" loading="lazy" width="100" height="69">
+            <div class="unit-promo">75% Off First 2 Months</div>
             <p class="unit-desc">Large appliances, furniture, mattresses, or a small vehicle.</p>
-            <div class="unit-tags"><span class="unit-tag">Drive-Up</span><span class="unit-tag">Vehicle OK</span><span class="unit-tag unit-tag-avail">Available</span></div>
-            <a href="https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent" onclick="return gtag_report_conversion('https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent');" class="unit-rent">Rent Now</a>
+            <div class="unit-tags"><span class="unit-tag">Vehicle OK</span><span class="unit-tag unit-tag-avail">Available</span></div>
+            <a href="https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent" onclick="return gtag_report_conversion('https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent');" class="unit-rent">Claim Deal</a>
           </div>
         </div>
 
-        <div class="unit-card">
-          <div class="unit-card-top">
-            <div><div class="unit-size">15&times;30</div><div class="unit-label">Large House</div><div class="unit-sqft">450 sq ft</div></div>
-            <div><div class="unit-price">$190</div><span class="unit-price-mo">/month</span></div>
-          </div>
-          <div class="unit-card-body">
-            <p class="unit-desc">RV, boat, or full large-house contents with drive-up access.</p>
-            <div class="unit-tags"><span class="unit-tag">Drive-Up</span><span class="unit-tag">RV / Boat</span><span class="unit-tag unit-tag-urgent">Waitlist</span></div>
-            <a href="https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent" onclick="return gtag_report_conversion('https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent');" class="unit-waitlist">Join Waitlist</a>
-          </div>
-        </div>
-
-        <div class="unit-card">
-          <div class="unit-card-top">
-            <div><div class="unit-size">15&times;40</div><div class="unit-label">Small Warehouse</div><div class="unit-sqft">600 sq ft</div></div>
-            <div><div class="unit-price">$250</div><span class="unit-price-mo">/month</span></div>
-          </div>
-          <div class="unit-card-body">
-            <p class="unit-desc">Contractor storage: equipment, inventory, or a full workshop.</p>
-            <div class="unit-tags"><span class="unit-tag">Drive-Up</span><span class="unit-tag">Commercial</span><span class="unit-tag unit-tag-urgent">Only 1 Left</span></div>
-            <a href="https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent" onclick="return gtag_report_conversion('https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent');" class="unit-rent">Rent Now</a>
-          </div>
-        </div>
-
-        <div class="unit-card">
-          <div class="unit-card-top">
-            <div><div class="unit-size">20&times;40</div><div class="unit-label">Industrial Warehouse</div><div class="unit-sqft">800 sq ft</div></div>
-            <div><div class="unit-price">$350</div><span class="unit-price-mo">/month</span></div>
-          </div>
-          <div class="unit-card-body">
-            <p class="unit-desc">Large-scale commercial and industrial storage, fully monitored.</p>
-            <div class="unit-tags"><span class="unit-tag">Drive-Up</span><span class="unit-tag">Industrial</span><span class="unit-tag unit-tag-urgent">Waitlist</span></div>
-            <a href="https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent" onclick="return gtag_report_conversion('https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent');" class="unit-waitlist">Join Waitlist</a>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -779,6 +753,14 @@
             <div><div class="review-name">Derek B.</div><div class="review-loc">Reno County, KS</div></div>
           </div>
         </div>
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"Great prices and easy online rental process. Had my unit set up in less than 10 minutes. Clean facility with good security."</p>
+          <div class="review-author">
+            <div class="review-avatar">KW</div>
+            <div><div class="review-name">Karen W.</div><div class="review-loc">Hutchinson, KS</div></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -807,7 +789,7 @@
             <span class="loc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
             <div><div class="loc-label">Gate Access</div><div class="loc-val">Available 24/7 for all tenants</div></div>
           </div>
-          <a href="https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent" onclick="return gtag_report_conversion('https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent');" class="btn btn-primary" style="margin-top: 8px;">Rent a Unit Online &rarr;</a>
+          <a href="https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent" onclick="return gtag_report_conversion('https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent');" class="btn btn-primary" style="margin-top: 8px;">Claim Your Deal &rarr;</a>
         </div>
         <div class="map-wrap">
           <iframe
@@ -823,10 +805,10 @@
   <!-- Final CTA -->
   <section class="cta-banner">
     <div class="container">
-      <h2>Ready to Reserve Your Unit?</h2>
+      <h2>75% Off Your First 2 Months &mdash; Limited Time</h2>
       <p>Book online in minutes. No hidden fees, no long-term contracts.</p>
       <div class="cta-banner-buttons">
-        <a href="https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent" onclick="return gtag_report_conversion('https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent');" class="btn btn-primary">Rent Now &rarr;</a>
+        <a href="https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent" onclick="return gtag_report_conversion('https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent');" class="btn btn-primary">Claim Your Deal &rarr;</a>
         <a href="tel:6206627336" class="btn btn-secondary">Call (620) 662-7336</a>
       </div>
     </div>
@@ -847,9 +829,26 @@
   </a>
 
   <script>
-    // Price selector
+    // Price selector — 75% discount on 5x10, 10x10, 10x15, 10x20 only
     document.getElementById('unit-size').addEventListener('change', function() {
-      document.getElementById('price-display').textContent = '$' + this.value;
+      var regular = parseFloat(this.value);
+      var promoSizes = [55, 65, 75, 105];
+      var priceRegularEl = document.getElementById('price-regular');
+      var priceDisplayEl = document.getElementById('price-display');
+      var priceMoEl = document.querySelector('.form-price-mo');
+      if (promoSizes.indexOf(regular) !== -1) {
+        var discounted = (regular * 0.25).toFixed(2).replace(/\.00$/, '');
+        priceRegularEl.style.display = '';
+        priceRegularEl.textContent = '$' + regular + '/mo';
+        priceDisplayEl.style.color = 'var(--green)';
+        priceDisplayEl.textContent = '$' + discounted + '/mo';
+        priceMoEl.innerHTML = 'for your first 2 months &bull; then $' + regular + '/mo';
+      } else {
+        priceRegularEl.style.display = 'none';
+        priceDisplayEl.style.color = 'var(--orange)';
+        priceDisplayEl.textContent = '$' + regular + '/mo';
+        priceMoEl.innerHTML = 'per month';
+      }
     });
   </script>
 
@@ -890,14 +889,7 @@
       }
     ],
     "priceRange": "$$",
-    "image": "https://www.renocountystorage.com/img/s-hutch-hero.webp",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.1",
-      "reviewCount": "72",
-      "bestRating": "5",
-      "worstRating": "1"
-    }
+    "image": "https://www.renocountystorage.com/img/s-hutch-hero.webp"
   }
   </script>
 
