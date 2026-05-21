@@ -7,3 +7,4 @@
 
 # Strip .html extension for legal pages
 /privacy-policy.html   /privacy-policy   301
+/terms.html   /terms   301
