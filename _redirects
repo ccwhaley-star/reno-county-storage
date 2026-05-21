@@ -4,3 +4,6 @@
 /service-areas/reno-county-ks                 /              301
 /service-areas/reno-county-ks/nickerson       /              301
 /service-areas/reno-county-ks/south-hutchinson  /            301
+
+# Strip .html extension for legal pages
+/privacy-policy.html   /privacy-policy   301
