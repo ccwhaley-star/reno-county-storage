@@ -334,7 +334,8 @@ ul { list-style: none; }
 }
 
 .hero-bg {
-  background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.8));
+  /* Memorial Day: horizontal overlay — dark left for text legibility, fading lighter right to reveal the flag image. Revert to: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.8)); */
+  background: linear-gradient(to right, rgba(26, 26, 26, 0.85) 0%, rgba(26, 26, 26, 0.55) 45%, rgba(26, 26, 26, 0.15) 100%);
   color: var(--white);
   padding: 72px 48px;
   border-radius: 16px;
@@ -2073,6 +2074,11 @@ a.hero-badge:hover {
   .hero h1,
   .hero .hero-heading {
     font-size: 2.2rem;
+  }
+
+  /* Memorial Day: text spans most of the width at this size, so keep a uniform dark overlay for legibility instead of the desktop light-right gradient. */
+  .hero-bg {
+    background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.8));
   }
 
   .features-grid {
