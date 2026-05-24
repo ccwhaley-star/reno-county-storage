@@ -2084,7 +2084,7 @@ a.hero-badge:hover {
   /* Memorial Day: on mobile the narrow crop trims the flag (far right of the
      girl/dad photo), so anchor the visible window to the right to keep it. */
   .hero:not(.hero-alt) .hero-bg-img {
-    object-position: right center;
+    object-position: 75% center;
   }
 
   .features-grid {
