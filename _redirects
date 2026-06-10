@@ -1,10 +1,38 @@
 # Legacy URL redirects
-/locations                                    /#locations    301
-/service-areas                                /              301
-/service-areas/reno-county-ks                 /              301
-/service-areas/reno-county-ks/nickerson       /              301
-/service-areas/reno-county-ks/south-hutchinson  /            301
+/locations                                    /#locations    301!
+/service-areas                                /              301!
+/service-areas/reno-county-ks                 /              301!
+/service-areas/reno-county-ks/nickerson       /              301!
+/service-areas/reno-county-ks/south-hutchinson  /south-hutchinson  301!
 
-# Strip .html extension for legal pages
-/privacy-policy.html   /privacy-policy   301
-/terms.html   /terms   301
+# .html -> extensionless redirects
+# The trailing `!` forces the redirect even though Netlify's pretty-URLs
+# feature would otherwise silently drop these rules. Without it, every
+# .html URL serves 200 directly and Google ends up with both the .html
+# and the clean URL competing for the same content in its index.
+/index.html                /                         301!
+/size-guide.html           /size-guide               301!
+/tenant-protection.html    /tenant-protection        301!
+/security.html             /security                 301!
+/faq.html                  /faq                      301!
+/privacy-policy.html       /privacy-policy           301!
+/terms.html                /terms                    301!
+/blog.html                 /blog                     301!
+/south-hutchinson.html     /south-hutchinson         301!
+/storage-near-mcpherson.html  /storage-near-mcpherson  301!
+/storage-near-newton.html  /storage-near-newton      301!
+
+# Blog post .html redirects
+/posts/why-storage-facility-security-matters.html  /posts/why-storage-facility-security-matters  301!
+/posts/choosing-right-storage-unit-size.html       /posts/choosing-right-storage-unit-size       301!
+/posts/tips-storing-items-long-term.html           /posts/tips-storing-items-long-term           301!
+/posts/self-storage-makes-moving-easier.html       /posts/self-storage-makes-moving-easier       301!
+/posts/what-is-tenant-protection.html              /posts/what-is-tenant-protection              301!
+/posts/protect-belongings-kansas-humidity.html     /posts/protect-belongings-kansas-humidity     301!
+/posts/moving-to-hutchinson.html                   /posts/moving-to-hutchinson                   301!
+/posts/storage-solutions-reno-county-homeowners.html  /posts/storage-solutions-reno-county-homeowners  301!
+/posts/5-things-people-forget.html                 /posts/5-things-people-forget                 301!
+/posts/seasonal-storage-calendar.html              /posts/seasonal-storage-calendar              301!
+/posts/storage-during-renovation.html              /posts/storage-during-renovation              301!
+/posts/climate-controlled-vs-regular.html          /posts/climate-controlled-vs-regular          301!
+/posts/hutchinson-student-storage-guide.html       /posts/hutchinson-student-storage-guide       301!
