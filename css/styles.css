@@ -1039,6 +1039,12 @@ a.hero-badge:hover {
   border-radius: var(--radius);
 }
 
+.veteran-badge {
+  height: 92px;
+  width: auto;
+  border-radius: var(--radius);
+}
+
 .footer h3,
 .footer h4 {
   font-size: 0.9rem;
