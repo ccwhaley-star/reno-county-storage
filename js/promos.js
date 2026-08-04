@@ -41,13 +41,13 @@ var PROMOS = {
     discountMonths: 1,
     crossSellPitch: "Need this size today? Our Hutchinson location at 2511 E 17th Ave has availability",
     sizes: [
-      { size: "5x10",  label: "Large Closet",         sqft: 50,  price: 65,  img: "img/unit-5x10.webp",  desc: "Bed frame, couch, and washing machine with room to spare. 5-foot opening for easy access.", tags: ["Available"],                 eligible: true },
-      { size: "8x10",  label: "Large Walk-in Closet", sqft: 80,  price: 85,  img: "img/unit-5x10.webp",  desc: "Drive-up access with space for bookshelves, bedside tables, and coffee tables.",            tags: ["Only 2 Left"],               eligible: true },
-      { size: "10x10", label: "Average Bedroom",      sqft: 100, price: 95,  img: "img/unit-10x10.webp", desc: "Space for larger cabinets and several electronic appliances. Secure gated access.",         tags: ["Only 3 Left"],               eligible: true },
-      { size: "10x15", label: "Large Bedroom",        sqft: 150, price: 105, img: "img/unit-10x15.webp", desc: "Fits a one-bedroom house: dining table, small couch, cabinets, and large appliances.",       tags: ["Available"],                 eligible: true },
-      { size: "10x20", label: "Single Car Garage",    sqft: 200, price: 125, img: "img/unit-10x20.webp", desc: "Large appliances, furniture, and multiple mattresses — or a small car.",                    tags: ["Vehicle OK", "Available"],   eligible: true },
-      { size: "10x25", label: "Large One Car Garage", sqft: 250, price: 145, img: "img/unit-12x30.webp", desc: "Several large pieces of furniture, appliances, motorcycles, and ATVs.",                     tags: ["Vehicle OK", "Only 1 Left"], eligible: true },
-      { size: "10x30", label: "Full House",           sqft: 300, price: 155, img: "img/unit-10x30.webp", desc: "Stores a boat or the contents of a full house.",                                            tags: ["Vehicle OK", "Only 1 Left"], eligible: true }
+      { size: "5x10",  label: "Large Closet",         sqft: 50,  price: 65,  img: "img/5x10-storage-unit-what-fits.webp",  desc: "Bed frame, couch, and washing machine with room to spare. 5-foot opening for easy access.", tags: ["Available"],                 eligible: true },
+      { size: "8x10",  label: "Large Walk-in Closet", sqft: 80,  price: 85,  img: "img/8x10-storage-unit-what-fits.webp",  desc: "Drive-up access with space for bookshelves, bedside tables, and coffee tables.",            tags: ["Only 2 Left"],               eligible: true },
+      { size: "10x10", label: "Average Bedroom",      sqft: 100, price: 95,  img: "img/10x10-storage-unit-what-fits.webp", desc: "Space for larger cabinets and several electronic appliances. Secure gated access.",         tags: ["Only 3 Left"],               eligible: true },
+      { size: "10x15", label: "Large Bedroom",        sqft: 150, price: 105, img: "img/10x15-storage-unit-what-fits.webp", desc: "Fits a one-bedroom house: dining table, small couch, cabinets, and large appliances.",       tags: ["Available"],                 eligible: true },
+      { size: "10x20", label: "Single Car Garage",    sqft: 200, price: 125, img: "img/10x20-storage-unit-what-fits.webp", desc: "Large appliances, furniture, and multiple mattresses — or a small car.",                    tags: ["Vehicle OK", "Available"],   eligible: true },
+      { size: "10x25", label: "Large One Car Garage", sqft: 250, price: 145, img: "img/10x25-storage-unit-what-fits.webp", desc: "Several large pieces of furniture, appliances, motorcycles, and ATVs.",                     tags: ["Vehicle OK", "Only 1 Left"], eligible: true },
+      { size: "10x30", label: "Full House",           sqft: 300, price: 155, img: "img/10x30-storage-unit-what-fits.webp", desc: "Stores a boat or the contents of a full house.",                                            tags: ["Vehicle OK", "Only 1 Left"], eligible: true }
     ]
   },
 
@@ -65,10 +65,10 @@ var PROMOS = {
     discountMonths: 2,
     crossSellPitch: "This size is in high demand. Our South Hutchinson location may have availability",
     sizes: [
-      { size: "5x10",  label: "Large Closet",      sqft: 50,  price: 55,  img: "img/unit-5x10.webp",  desc: "Bed frame, couch, and washing machine with room to spare.",      tags: [],                          eligible: false },
-      { size: "10x10", label: "Average Bedroom",   sqft: 100, price: 65,  img: "img/unit-10x10.webp", desc: "Larger cabinets and several appliances. Secure gate access.",    tags: ["Available"],               eligible: true },
-      { size: "10x15", label: "Large Bedroom",     sqft: 150, price: 75,  img: "img/unit-10x15.webp", desc: "Fits a one-bedroom house: table, couch, cabinets, appliances.",  tags: ["Available"],               eligible: true },
-      { size: "10x20", label: "Single Car Garage", sqft: 200, price: 105, img: "img/unit-10x20.webp", desc: "Large appliances, furniture, mattresses, or a small vehicle.",   tags: ["Vehicle OK", "Available"], eligible: true }
+      { size: "5x10",  label: "Large Closet",      sqft: 50,  price: 55,  img: "img/5x10-storage-unit-what-fits.webp",  desc: "Bed frame, couch, and washing machine with room to spare.",      tags: [],                          eligible: false },
+      { size: "10x10", label: "Average Bedroom",   sqft: 100, price: 65,  img: "img/10x10-storage-unit-what-fits.webp", desc: "Larger cabinets and several appliances. Secure gate access.",    tags: ["Available"],               eligible: true },
+      { size: "10x15", label: "Large Bedroom",     sqft: 150, price: 75,  img: "img/10x15-storage-unit-what-fits.webp", desc: "Fits a one-bedroom house: table, couch, cabinets, appliances.",  tags: ["Available"],               eligible: true },
+      { size: "10x20", label: "Single Car Garage", sqft: 200, price: 105, img: "img/10x20-storage-unit-what-fits.webp", desc: "Large appliances, furniture, mattresses, or a small vehicle.",   tags: ["Vehicle OK", "Available"], eligible: true }
     ]
   }
 };
