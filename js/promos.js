@@ -244,6 +244,13 @@ function initPromoPage(cfg, sister, opts) {
     }
   }
 
+  // Hero headline leads with the discount while the promo is active
+  var heroH1 = document.getElementById("promo-hero-h1");
+  if (heroH1) {
+    var pctLabel = Math.round(cfg.discountPct * 100) + "% Off ";
+    heroH1.innerHTML = (active ? pctLabel : "") + "Storage Units in <em>" + cfg.locationName + "</em>";
+  }
+
   // Hero subtitle: promo sentence + page's own base copy (data-base)
   var heroSub = document.getElementById("promo-hero-sub");
   if (heroSub) {
