@@ -20,10 +20,13 @@
      sizes[]        — one entry per pricing card:
                         size, label, sqft, price (number, monthly;
                         null renders as "$TBD"), img, desc, tags[],
-                        eligible
+                        eligible, noPromo
        eligible: true  -> promo badge + discounted price
        eligible: false -> regular price, "High demand — join the
                           waitlist" label + cross-sell module
+       noPromo: true   -> available at regular price, excluded from
+                          the discount (no badge, no waitlist) — for
+                          one-off specialty units
    ============================================================ */
 
 var PROMOS = {
@@ -68,7 +71,8 @@ var PROMOS = {
       { size: "5x10",  label: "Large Closet",      sqft: 50,  price: 55,  img: "img/5x10-storage-unit-what-fits.webp",  desc: "Bed frame, couch, and washing machine with room to spare.",      tags: [],                          eligible: false },
       { size: "10x10", label: "Average Bedroom",   sqft: 100, price: 65,  img: "img/10x10-storage-unit-what-fits.webp", desc: "Larger cabinets and several appliances. Secure gate access.",    tags: ["Available"],               eligible: true },
       { size: "10x15", label: "Large Bedroom",     sqft: 150, price: 75,  img: "img/10x15-storage-unit-what-fits.webp", desc: "Fits a one-bedroom house: table, couch, cabinets, appliances.",  tags: ["Available"],               eligible: true },
-      { size: "10x20", label: "Single Car Garage", sqft: 200, price: 105, img: "img/10x20-storage-unit-what-fits.webp", desc: "Large appliances, furniture, mattresses, or a small vehicle.",   tags: ["Vehicle OK", "Available"], eligible: true }
+      { size: "10x20", label: "Single Car Garage", sqft: 200, price: 105, img: "img/10x20-storage-unit-what-fits.webp", desc: "Large appliances, furniture, mattresses, or a small vehicle.",   tags: ["Vehicle OK", "Available"], eligible: true },
+      { size: "15x40", label: "Flex Space",        sqft: 600, price: 250, img: "img/15x40-storage-unit-boat-storage.webp", desc: "One-of-a-kind 600 sq ft drive-up unit — room for a boat, contractor equipment, or business inventory.", tags: ["Vehicle OK", "Only 1 Left"], eligible: true, noPromo: true }
     ]
   }
 };
@@ -118,7 +122,7 @@ function promoRenderBanner(el, cfg, active) {
 }
 
 function promoRenderCard(s, cfg, sister, active, sisterActive, sisterUrl) {
-  var showPromo = active && s.eligible;
+  var showPromo = active && s.eligible && !s.noPromo;
   var priceHtml;
   if (s.price == null) {
     priceHtml = '<div class="unit-price">$TBD</div><span class="unit-price-mo">/mo</span>';
@@ -197,7 +201,7 @@ function promoRenderQuote(cfg, active) {
 
   function update() {
     var s = cfg.sizes[parseInt(select.value, 10)];
-    var showPromo = active && s.eligible && s.price != null;
+    var showPromo = active && s.eligible && !s.noPromo && s.price != null;
     if (s.price == null) {
       priceRegularEl.style.display = "none";
       priceDisplayEl.style.color = "var(--orange)";
