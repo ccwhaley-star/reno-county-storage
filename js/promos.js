@@ -41,15 +41,13 @@ var PROMOS = {
     discountMonths: 1,
     crossSellPitch: "Need this size today? Our Hutchinson location at 2511 E 17th Ave has availability",
     sizes: [
-      /* TODO(pricing): every `price: null` below is a PLACEHOLDER that
-         renders as "$TBD". Fill in the real 2511 E 17th Ave monthly
-         rates from the rental portal BEFORE this page goes live. */
-      { size: "5x10",  label: "Large Closet",      sqft: 50,  price: null, img: "img/unit-5x10.webp",  desc: "Bed frame, couch, and washing machine with room to spare.",              tags: ["Available"],                eligible: true },
-      { size: "10x10", label: "Average Bedroom",   sqft: 100, price: null, img: "img/unit-10x10.webp", desc: "Furniture and appliances from a small apartment. Secure gated access.", tags: ["Available"],                eligible: true },
-      { size: "10x15", label: "Large Bedroom",     sqft: 150, price: null, img: "img/unit-10x15.webp", desc: "Fits a one-bedroom house: table, couch, cabinets, appliances.",          tags: ["Available"],                eligible: true },
-      { size: "10x20", label: "Single Car Garage", sqft: 200, price: null, img: "img/unit-10x20.webp", desc: "Large appliances, furniture, mattresses, or a small vehicle.",           tags: ["Vehicle OK", "Available"],  eligible: true },
-      { size: "10x30", label: "Full House",        sqft: 300, price: null, img: "img/unit-10x30.webp", desc: "Contents of a full house — or a boat, trailer, or vehicle.",             tags: ["Vehicle OK", "Available"],  eligible: true },
-      { size: "12x30", label: "Extra Wide",        sqft: 360, price: null, img: "img/unit-12x30.webp", desc: "Our largest drive-up unit: a full household plus a vehicle or equipment.", tags: ["Vehicle OK", "Available"], eligible: true }
+      { size: "5x10",  label: "Large Closet",         sqft: 50,  price: 65,  img: "img/unit-5x10.webp",  desc: "Bed frame, couch, and washing machine with room to spare. 5-foot opening for easy access.", tags: ["Available"],                 eligible: true },
+      { size: "8x10",  label: "Large Walk-in Closet", sqft: 80,  price: 85,  img: "img/unit-5x10.webp",  desc: "Drive-up access with space for bookshelves, bedside tables, and coffee tables.",            tags: ["Only 2 Left"],               eligible: true },
+      { size: "10x10", label: "Average Bedroom",      sqft: 100, price: 95,  img: "img/unit-10x10.webp", desc: "Space for larger cabinets and several electronic appliances. Secure gated access.",         tags: ["Only 3 Left"],               eligible: true },
+      { size: "10x15", label: "Large Bedroom",        sqft: 150, price: 105, img: "img/unit-10x15.webp", desc: "Fits a one-bedroom house: dining table, small couch, cabinets, and large appliances.",       tags: ["Available"],                 eligible: true },
+      { size: "10x20", label: "Single Car Garage",    sqft: 200, price: 125, img: "img/unit-10x20.webp", desc: "Large appliances, furniture, and multiple mattresses — or a small car.",                    tags: ["Vehicle OK", "Available"],   eligible: true },
+      { size: "10x25", label: "Large One Car Garage", sqft: 250, price: 145, img: "img/unit-12x30.webp", desc: "Several large pieces of furniture, appliances, motorcycles, and ATVs.",                     tags: ["Vehicle OK", "Only 1 Left"], eligible: true },
+      { size: "10x30", label: "Full House",           sqft: 300, price: 155, img: "img/unit-10x30.webp", desc: "Stores a boat or the contents of a full house.",                                            tags: ["Vehicle OK", "Only 1 Left"], eligible: true }
     ]
   },
 
