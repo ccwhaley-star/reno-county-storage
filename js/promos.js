@@ -157,7 +157,13 @@ function promoRenderCard(s, cfg, sister, active, sisterActive, sisterUrl) {
     ? promoRentLink(cfg.rentUrl, "unit-rent", showPromo ? "Claim Deal" : "Rent This Size")
     : promoRentLink(cfg.rentUrl, "unit-waitlist", "Join the Waitlist");
 
+  // Card layout mirrors the Labette Cubby UnitCard: full-width photo
+  // header with the status pills overlaid, content below.
   return '<div class="unit-card">' +
+    '<div class="unit-card-photo">' +
+      '<img src="' + s.img + '" alt="' + s.size + ' storage unit &mdash; what fits inside" loading="lazy">' +
+      '<div class="unit-tags">' + tagsHtml + "</div>" +
+    "</div>" +
     '<div class="unit-card-top">' +
       "<div>" +
         '<div class="unit-size">' + promoSizeHtml(s.size) + "</div>" +
@@ -167,10 +173,8 @@ function promoRenderCard(s, cfg, sister, active, sisterActive, sisterUrl) {
       "<div>" + priceHtml + "</div>" +
     "</div>" +
     '<div class="unit-card-body">' +
-      '<img src="' + s.img + '" alt="' + s.size + ' storage unit" class="unit-card-img" loading="lazy" width="100">' +
       badgeHtml +
       '<p class="unit-desc">' + s.desc + "</p>" +
-      '<div class="unit-tags">' + tagsHtml + "</div>" +
       crossSellHtml +
       cta +
     "</div>" +

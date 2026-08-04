@@ -371,13 +371,28 @@
       transition: box-shadow 0.2s, border-color 0.2s;
     }
     .unit-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.08); border-color: var(--orange); }
-    .unit-card-img {
-      width: 100px;
-      height: auto;
-      float: right;
-      margin: 0 0 8px 12px;
-      border-radius: 8px;
+    .unit-card-photo {
+      position: relative;
+      aspect-ratio: 5 / 3;
+      background: #f7f7f7;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
     }
+    .unit-card-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .unit-card:hover .unit-card-photo img { transform: scale(1.03); }
+    .unit-card-photo .unit-tags {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      margin: 0;
+    }
+    .unit-card-photo .unit-tag { box-shadow: 0 1px 4px rgba(0,0,0,0.15); }
+    .unit-card-photo .unit-tag:not(.unit-tag-urgent):not(.unit-tag-avail) { background: rgba(255,255,255,0.95); }
     .unit-card-top {
       padding: 18px 20px 14px;
       display: flex;
@@ -435,7 +450,6 @@
       border-radius: 8px;
       padding: 8px 12px;
       margin-bottom: 12px;
-      margin-right: 120px;
       font-size: 0.78rem;
       font-weight: 700;
       color: #166534;
@@ -449,9 +463,21 @@
     }
     /* An odd card count leaves the last card orphaned in the 2-col
        grid — let it span the full row as a "largest unit" feature. */
-    .units-grid .unit-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
-    .units-grid .unit-card:last-child:nth-child(odd) .unit-card-img { width: 160px; }
-    .units-grid .unit-card:last-child:nth-child(odd) .unit-promo { margin-right: 180px; }
+    .units-grid .unit-card:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      grid-template-rows: auto 1fr;
+    }
+    .units-grid .unit-card:last-child:nth-child(odd) .unit-card-photo {
+      grid-row: 1 / 3;
+      aspect-ratio: auto;
+      height: 100%;
+      border-bottom: 0;
+      border-right: 1px solid var(--border);
+    }
+    .units-grid .unit-card:last-child:nth-child(odd) .unit-card-top,
+    .units-grid .unit-card:last-child:nth-child(odd) .unit-card-body { grid-column: 2; }
     .unit-crosssell {
       background: #fff7ed;
       border: 1px solid #fed7aa;
@@ -581,6 +607,13 @@
       .hero-buttons { flex-direction: column; }
       .hero-buttons .btn { width: 100%; }
       .units-grid { grid-template-columns: 1fr; }
+      .units-grid .unit-card:last-child:nth-child(odd) { display: block; }
+      .units-grid .unit-card:last-child:nth-child(odd) .unit-card-photo {
+        aspect-ratio: 5 / 3;
+        height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
     }
 
     /* ── Phone FAB ── */
