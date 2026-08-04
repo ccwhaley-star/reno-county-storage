@@ -447,6 +447,11 @@
       text-decoration: line-through;
       font-weight: 500;
     }
+    /* An odd card count leaves the last card orphaned in the 2-col
+       grid — let it span the full row as a "largest unit" feature. */
+    .units-grid .unit-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .units-grid .unit-card:last-child:nth-child(odd) .unit-card-img { width: 160px; }
+    .units-grid .unit-card:last-child:nth-child(odd) .unit-promo { margin-right: 180px; }
     .unit-crosssell {
       background: #fff7ed;
       border: 1px solid #fed7aa;
