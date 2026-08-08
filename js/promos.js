@@ -95,6 +95,12 @@ function promoExpiresText(promo) {
     .toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 }
 
+function promoExpiresShort(promo) {
+  var p = promo.expires.split('-');
+  return new Date(+p[0], +p[1] - 1, +p[2])
+    .toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+
 function promoDurationText(promo) {
   return promo.discountMonths === 1
     ? 'for your first month'
@@ -133,7 +139,9 @@ function initPromoPage(pageKey, sisterKey) {
     if (active) {
       el('promo-banner').innerHTML =
         '<span>&#127881; ' + promo.offerText + '</span> &mdash; Use code <strong>' +
-        promo.promoCode + '</strong> &bull; Offer ends ' + promoExpiresText(promo);
+        promo.promoCode + '</strong> &bull; <span class="bar-long">Offer ends ' +
+        promoExpiresText(promo) + '</span><span class="bar-short">Ends ' +
+        promoExpiresShort(promo) + '</span>';
     } else {
       el('promo-banner').style.display = 'none';
     }
@@ -150,7 +158,20 @@ function initPromoPage(pageKey, sisterKey) {
     }
   }
   if (el('promo-from-price')) {
-    el('promo-from-price').textContent = 'from $' + promoMinPrice(promo) + '/mo';
+    if (active) {
+      // Sale floor: cheapest promo-eligible size at the discounted rate.
+      var eligiblePrices = promo.sizes.filter(function (s) { return s.eligible; })
+        .map(function (s) { return promoPriceNumber(s.price); });
+      if (eligiblePrices.length) {
+        var floor = Math.min.apply(null, eligiblePrices) * (1 - promo.discountRate);
+        el('promo-from-price').textContent = 'from ' + promoMoney(floor) + '/mo ' +
+          (promo.discountMonths === 1 ? 'your first month' : 'your first ' + promo.discountMonths + ' months');
+      } else {
+        el('promo-from-price').textContent = 'from $' + promoMinPrice(promo) + '/mo';
+      }
+    } else {
+      el('promo-from-price').textContent = 'from $' + promoMinPrice(promo) + '/mo';
+    }
   }
   if (el('promo-hero-sub')) {
     el('promo-hero-sub').textContent = active
@@ -201,7 +222,7 @@ function initPromoPage(pageKey, sisterKey) {
       var regular = promoPriceNumber(s.price);
       var promoted = active && s.eligible;
       var priceHtml = promoted
-        ? '<div class="unit-price-original">$' + regular + '</div><div class="unit-price">' +
+        ? '<div class="unit-price-original">$' + regular + '</div><div class="unit-price unit-price-sale">' +
           promoMoney(regular * (1 - promo.discountRate)) + '</div><span class="unit-price-mo">/mo for ' +
           promo.discountMonths + ' mo</span>'
         : '<div class="unit-price">$' + regular + '</div><span class="unit-price-mo">/month</span>';

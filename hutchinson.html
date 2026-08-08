@@ -90,6 +90,12 @@
       letter-spacing: 0.02em;
     }
     .top-bar span { color: #6ee7b7; font-weight: 700; }
+    .top-bar .bar-long, .top-bar .bar-short { color: inherit; font-weight: inherit; }
+    .top-bar .bar-short { display: none; }
+    @media (max-width: 640px) {
+      .top-bar .bar-long { display: none; }
+      .top-bar .bar-short { display: inline; }
+    }
 
     /* ── Header (minimal) ── */
     .lp-header {
@@ -215,6 +221,13 @@
     .hero h1 em {
       font-style: normal;
       color: var(--orange);
+    }
+    .hero h1 #promo-from-price {
+      display: block;
+      font-size: 0.55em;
+      font-weight: 700;
+      color: rgba(255,255,255,0.78);
+      margin-top: 8px;
     }
     .hero-sub {
       font-size: 1.05rem;
@@ -388,6 +401,7 @@
     .unit-label { font-size: 0.78rem; color: var(--gray); margin-top: 2px; }
     .unit-sqft { font-size: 0.72rem; color: var(--gray); }
     .unit-price { font-size: 1.5rem; font-weight: 800; color: var(--orange); line-height: 1; }
+    .unit-price-sale { color: var(--green); font-size: 1.75rem; }
     .unit-price-mo { display: block; font-size: 0.7rem; color: var(--gray); font-weight: 500; text-align: right; }
     .unit-price-original {
       font-size: 0.85rem;
