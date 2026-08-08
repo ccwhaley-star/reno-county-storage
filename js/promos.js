@@ -140,8 +140,8 @@ function initPromoPage(pageKey, sisterKey) {
       el('promo-banner').innerHTML =
         '<span>&#127881; ' + promo.offerText + '</span> &mdash; Use code <strong>' +
         promo.promoCode + '</strong> &bull; <span class="bar-long">Offer ends ' +
-        promoExpiresText(promo) + '</span><span class="bar-short">Ends ' +
-        promoExpiresShort(promo) + '</span>';
+        promoExpiresText(promo) + '</span><span class="bar-short">Ends&nbsp;' +
+        promoExpiresShort(promo).replace(' ', '&nbsp;') + '</span>';
     } else {
       el('promo-banner').style.display = 'none';
     }
