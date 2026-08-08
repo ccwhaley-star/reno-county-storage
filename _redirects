@@ -1,4 +1,6 @@
 # Legacy URL redirects
+/south-hutchinson-storage                     /south-hutchinson  301!
+/hutchinson-storage                           /hutchinson        301!
 /locations                                    /#locations    301!
 /service-areas                                /              301!
 /service-areas/reno-county-ks                 /              301!
