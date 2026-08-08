@@ -66,7 +66,7 @@ const PROMOS = {
   }
 };
 
-const PROMO_FINE_PRINT = 'Offer valid at this location only. Cannot be combined with other offers, including military discount. Deposits and reservations at regular rates. New rentals only.';
+const PROMO_FINE_PRINT = 'Offer valid at this location only. Cannot be combined with other offers, including military discount. Deposits and reservations at regular rates. New rentals only. Rent online at the regular rate and our team applies your discount &mdash; or mention the code when we call or text.';
 
 /* Google Ads conversion label for lead-form submissions (separate from the
    portal-click label). Leave empty until the "phone lead" conversion action
@@ -138,7 +138,7 @@ function initPromoPage(pageKey, sisterKey) {
   if (el('promo-banner')) {
     if (active) {
       el('promo-banner').innerHTML =
-        '<span>&#127881; ' + promo.offerText + '</span> &mdash; Use code <strong>' +
+        '<span>&#127881; ' + promo.offerText + '</span> &mdash; Mention code <strong>' +
         promo.promoCode + '</strong> &bull; <span class="bar-long">Offer ends ' +
         promoExpiresText(promo) + '</span><span class="bar-short">Ends&nbsp;' +
         promoExpiresShort(promo).replace(' ', '&nbsp;') + '</span>';
