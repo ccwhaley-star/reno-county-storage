@@ -9,6 +9,10 @@
                                            false = regular price + waitlist
                                                    label + cross-sell to the
                                                    sister location
+     - sizes[].noPromo                   → true (with eligible:false) = shown
+                                           and rentable at regular price, but
+                                           excluded from the promo — no badge,
+                                           no waitlist, no cross-sell
    When today's date is past `expires`, the banner, badges, and
    discounted prices disappear automatically and the page falls
    back to regular pricing.
@@ -60,7 +64,7 @@ const PROMOS = {
       { size: '10x15', label: 'Large Bedroom',        sqft: 150, price: '$75/mo',  eligible: true,  desc: 'Fits a one-bedroom house: table, couch, cabinets, appliances.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Insulated', cls: '' }, { text: 'Available', cls: 'unit-tag-avail' }] },
       { size: '10x20', label: 'Single Car Garage',    sqft: 200, price: '$105/mo', eligible: true,  desc: 'Large appliances, furniture, mattresses, or a small vehicle.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Vehicle OK', cls: '' }, { text: 'Available', cls: 'unit-tag-avail' }] },
       { size: '15x30', label: 'Large House',          sqft: 450, price: '$190/mo', eligible: false, desc: 'RV, boat, or full large-house contents with drive-up access.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'RV / Boat', cls: '' }, { text: 'Waitlist', cls: 'unit-tag-urgent' }] },
-      { size: '15x40', label: 'Small Warehouse',      sqft: 600, price: '$250/mo', eligible: false, desc: 'Contractor storage: equipment, inventory, or a full workshop.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Commercial', cls: '' }, { text: 'Only 1 Left', cls: 'unit-tag-urgent' }] },
+      { size: '15x40', label: 'Small Warehouse',      sqft: 600, price: '$250/mo', eligible: false, noPromo: true, desc: 'Contractor storage: equipment, inventory, or a full workshop. Regular rate.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Commercial', cls: '' }, { text: 'Only 1 Left', cls: 'unit-tag-urgent' }] },
       { size: '20x40', label: 'Industrial Warehouse', sqft: 800, price: '$350/mo', eligible: false, desc: 'Large-scale commercial and industrial storage, fully monitored.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Industrial', cls: '' }, { text: 'Waitlist', cls: 'unit-tag-urgent' }] }
     ]
   }
@@ -206,7 +210,7 @@ function initPromoPage(pageKey, sisterKey) {
         regEl.style.display = 'none';
         dispEl.style.color = 'var(--orange)';
         dispEl.textContent = '$' + regular + '/mo';
-        moEl.innerHTML = (active && !s.eligible)
+        moEl.innerHTML = (active && !s.eligible && !s.noPromo)
           ? 'per month &bull; high demand &mdash; join the waitlist'
           : 'per month &bull; no contracts';
       }
@@ -229,7 +233,7 @@ function initPromoPage(pageKey, sisterKey) {
 
       var badgeHtml = promoted
         ? '<div class="unit-promo">' + promo.offerText + ' &bull; Code ' + promo.promoCode + '</div>'
-        : (active && !s.eligible
+        : (active && !s.eligible && !s.noPromo
           ? '<div class="unit-waitlist-label">High demand &mdash; join the waitlist</div>'
           : '');
 
@@ -237,9 +241,9 @@ function initPromoPage(pageKey, sisterKey) {
         return '<span class="unit-tag ' + t.cls + '">' + t.text + '</span>';
       }).join('');
 
-      var crossSellHtml = (active && !s.eligible) ? promoCrossSellHtml(promo, sister) : '';
+      var crossSellHtml = (active && !s.eligible && !s.noPromo) ? promoCrossSellHtml(promo, sister) : '';
 
-      var ctaHtml = (active && !s.eligible)
+      var ctaHtml = (active && !s.eligible && !s.noPromo)
         ? '<a href="' + promo.portalUrl + '" onclick="return gtag_report_conversion(\'' + promo.portalUrl + '\');" class="unit-waitlist">Join Waitlist</a>'
         : '<a href="' + promo.portalUrl + '" onclick="return gtag_report_conversion(\'' + promo.portalUrl + '\');" class="unit-rent">' + (promoted ? 'Claim Deal' : 'Rent Now') + '</a>';
 
