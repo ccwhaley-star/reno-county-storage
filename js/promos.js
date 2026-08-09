@@ -283,7 +283,7 @@ function initPromoPage(pageKey, sisterKey) {
 }
 
 /* ── lead-capture popup ──────────────────────────────────────
-   Exit-intent on desktop, 15s dwell fallback everywhere.
+   Exit-intent on desktop, 7s dwell fallback everywhere.
    Suppressed once dismissed this session, permanently after a
    submission, and never shown to visitors who already clicked
    through to the rental portal. Submits to Netlify Forms via
@@ -349,7 +349,7 @@ function initLeadPopup(pageKey) {
   document.addEventListener('mouseout', function (e) {
     if (!e.relatedTarget && e.clientY <= 0) show();
   });
-  setTimeout(show, 15000);
+  setTimeout(show, 7000);
 
   // Dismissals
   modal.querySelectorAll('[data-lead-dismiss]').forEach(function (elm) {
