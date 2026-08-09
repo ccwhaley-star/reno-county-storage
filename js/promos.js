@@ -283,7 +283,9 @@ function initPromoPage(pageKey, sisterKey) {
 }
 
 /* ── lead-capture popup ──────────────────────────────────────
-   Exit-intent on desktop, 7s dwell fallback everywhere.
+   Exit-intent on desktop, 7s dwell fallback everywhere, plus a
+   scroll trigger when the pricing grid enters the viewport —
+   whichever fires first.
    Suppressed once dismissed this session, permanently after a
    submission, and never shown to visitors who already clicked
    through to the rental portal. Submits to Netlify Forms via
@@ -350,6 +352,16 @@ function initLeadPopup(pageKey) {
     if (!e.relatedTarget && e.clientY <= 0) show();
   });
   setTimeout(show, 7000);
+  var unitsEl = document.getElementById('units');
+  if (unitsEl && typeof IntersectionObserver === 'function') {
+    var unitsObserver = new IntersectionObserver(function (entries) {
+      if (entries.some(function (e) { return e.isIntersecting; })) {
+        unitsObserver.disconnect();
+        show();
+      }
+    }, { threshold: 0.2 });
+    unitsObserver.observe(unitsEl);
+  }
 
   // Dismissals
   modal.querySelectorAll('[data-lead-dismiss]').forEach(function (elm) {
