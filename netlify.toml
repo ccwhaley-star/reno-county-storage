@@ -1,0 +1,46 @@
+# Netlify configuration for renocountystorage.com
+#
+# NOTE: this site also has a `_redirects` file with the bulk of its rules
+# (legacy URLs + .html -> extensionless). Netlify processes redirects declared
+# HERE first, then falls through to `_redirects`. Keep ad/campaign paths in this
+# file and site-structure rules in `_redirects` so the two don't fight.
+
+# --- Paid-ads campaign paths -------------------------------------------------
+# These paths were used in Google Ads creatives but were never built as pages
+# on this site, so they were serving the 404. Send them to the matching
+# location landing page instead of losing the click.
+
+[[redirects]]
+  from = "/south-hutch/50-off"
+  to = "/south-hutchinson"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/south-hutch/*"
+  to = "/south-hutchinson"
+  status = 301
+
+[[redirects]]
+  from = "/hutch/50-off"
+  to = "/hutchinson"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/hutch/*"
+  to = "/hutchinson"
+  status = 301
+
+# Bare campaign paths with no location segment. Nothing in the repo or git
+# history pins these to a specific facility; they default to the 17th Ave
+# (Hutchinson) page as the larger location. Retarget if the ad says otherwise.
+[[redirects]]
+  from = "/50-off"
+  to = "/hutchinson"
+  status = 301
+
+[[redirects]]
+  from = "/promo/*"
+  to = "/hutchinson"
+  status = 301
