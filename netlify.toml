@@ -32,15 +32,14 @@
   to = "/hutchinson"
   status = 301
 
-# Bare campaign paths with no location segment. Nothing in the repo or git
-# history pins these to a specific facility; they default to the 17th Ave
-# (Hutchinson) page as the larger location. Retarget if the ad says otherwise.
+# Bare campaign paths with no location segment. Owner confirmed these ads run
+# for the Walnut St (South Hutchinson) facility.
 [[redirects]]
   from = "/50-off"
-  to = "/hutchinson"
+  to = "/south-hutchinson"
   status = 301
 
 [[redirects]]
   from = "/promo/*"
-  to = "/hutchinson"
+  to = "/south-hutchinson"
   status = 301
