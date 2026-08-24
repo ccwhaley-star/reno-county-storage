@@ -43,3 +43,88 @@
   from = "/promo/*"
   to = "/south-hutchinson"
   status = 301
+
+# --- Guessed intent paths ----------------------------------------------------
+# Paths visitors and ad clicks type or link to that were never built here.
+# Confirmed 404ing live; GA4 (last 90d) shows real traffic on /contact,
+# /pages/rent, /south_hutchinson, /storage-units and /units. The rest of the set
+# mirrors the Labette and Bourbon configs. Two-location site, so the generic
+# rental-intent paths go to the homepage where both facilities are listed.
+
+[[redirects]]
+  from = "/storage-units"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/units"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/self-storage"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/rent"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/rent-now"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/rent-online"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/rent-storage"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/reserve"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/book-now"
+  to = "/"
+  status = 301
+
+# Rental-portal path pattern — people land here when a portal link loses its host.
+[[redirects]]
+  from = "/pages/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/contact"
+  to = "/"
+  status = 301
+
+# Pricing lives on the location pages and homepage, not the size guide.
+[[redirects]]
+  from = "/pricing"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/rates"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/sizes"
+  to = "/size-guide"
+  status = 301
+
+# Underscore variant of the real page name — seen in GA4.
+[[redirects]]
+  from = "/south_hutchinson"
+  to = "/south-hutchinson"
+  status = 301
