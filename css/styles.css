@@ -61,6 +61,8 @@ button:focus-visible,
 :root {
   --orange: #FF5829;
   --orange-hover: #e04a1f;
+  --orange-a11y: #D14822;       /* same hue, 4.5:1 on white — nav active + primary buttons */
+  --orange-a11y-hover: #BD411E;
   --dark: #1a1a1a;
   --darker: #111111;
   --white: #ffffff;
@@ -159,7 +161,7 @@ ul { list-style: none; }
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--orange);
+  color: var(--orange-a11y);
 }
 
 .nav-links a.active::after {
@@ -239,7 +241,7 @@ ul { list-style: none; }
 .nav-dropdown-menu a:hover,
 .nav-dropdown-menu a.active {
   background: var(--light);
-  color: var(--orange);
+  color: var(--orange-a11y);
 }
 
 .nav-dropdown-menu a.active::after {
@@ -282,12 +284,12 @@ ul { list-style: none; }
 }
 
 .btn-primary {
-  background: var(--orange);
+  background: var(--orange-a11y);
   color: var(--white);
 }
 
 .btn-primary:hover {
-  background: var(--orange-hover);
+  background: var(--orange-a11y-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 20px rgba(255, 88, 41, 0.3);
 }

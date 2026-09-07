@@ -1,29 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18039175000"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-18039175000');
-    gtag('config', 'G-4GW3P1EYC4');
-  </script>
-  <script>
-    function gtag_report_conversion(url) {
-      var callback = function () {
-        if (typeof(url) != 'undefined') {
-          window.location = url;
-        }
-      };
-      gtag('event', 'conversion', {
-          'send_to': 'AW-18039175000/Pp3vCLa4uI8cENju35lD',
-          'event_callback': callback
-      });
-      return false;
-    }
-  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>50% Off Storage Units in Hutchinson, KS | Limited Time</title>
@@ -54,7 +31,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet"></noscript>
-  <link rel="preload" href="img/hutch-hero.webp" as="image" type="image/webp">
+  <link rel="preload" href="img/hutch-hero-800.webp" as="image" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
+  <link rel="preload" href="img/hutch-hero.webp" as="image" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -180,6 +158,9 @@
       inset: 0;
       background: url('img/hutch-hero.webp') center/cover no-repeat;
       pointer-events: none;
+    }
+    @media (max-width: 768px) {
+      .hero::before { background-image: url('img/hutch-hero-800.webp'); }
     }
     .hero::after {
       content: '';
@@ -642,6 +623,23 @@
     .phone-fab:hover { transform: scale(1.1); }
     .phone-fab svg { width: 24px; height: 24px; }
   </style>
+  <script>
+    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date());gtag('config','AW-18039175000');gtag('config','G-4GW3P1EYC4');
+    window.addEventListener('load',function(){setTimeout(function(){
+      var s=document.createElement('script');s.async=true;
+      s.src='https://www.googletagmanager.com/gtag/js?id=AW-18039175000';document.head.appendChild(s);
+    },1000);});
+  </script>
+  <script>
+    function gtag_report_conversion(url){
+      var done=false;
+      var callback=function(){ if(done) return; done=true; if(typeof url!=='undefined'){ window.location=url; } };
+      gtag('event','conversion',{ 'send_to':'AW-18039175000/Pp3vCLa4uI8cENju35lD', 'event_callback':callback });
+      setTimeout(callback,800);
+      return false;
+    }
+  </script>
 </head>
 <body>
 
