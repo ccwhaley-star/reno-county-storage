@@ -510,8 +510,13 @@ a.hero-badge:hover {
 }
 
 .military-banner {
-  background: linear-gradient(135deg, #2d3a2d 0%, #1a2e1a 100%);
-  padding: 20px 32px;
+  /* Muted, darkened American flag as a textured backdrop (same treatment
+     as Labette). Image lives on ::before so it can be desaturated/darkened
+     without touching the text; overflow:hidden clips it to the card radius. */
+  position: relative;
+  overflow: hidden;
+  background: #171717;
+  padding: 40px 32px;
   text-align: center;
   color: var(--white);
   border-radius: 12px;
@@ -519,7 +524,18 @@ a.hero-badge:hover {
   margin: 0 auto;
 }
 
+.military-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../img/american-wide-flag-on-white.webp') center top / cover no-repeat;
+  filter: saturate(0.45) brightness(0.32);
+  z-index: 0;
+}
+
 .military-banner-inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -535,12 +551,14 @@ a.hero-badge:hover {
 
 .military-banner strong {
   font-size: 1.1rem;
-  color: var(--orange);
+  color: #fff; /* same as the hero h1 */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 .military-banner p {
   font-size: 0.95rem;
-  color: #ccc;
+  color: #b0b0b0; /* same as .hero-subtitle */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 /* --- Section Defaults --- */
@@ -2511,4 +2529,12 @@ a.hero-badge:hover {
 
 .legal-content strong {
   color: var(--dark);
+}
+
+/* Flag banner on small screens: fill the card, keep the star field in view. */
+@media (max-width: 640px) {
+  .military-banner::before {
+    background-size: cover;
+    background-position: left center;
+  }
 }
