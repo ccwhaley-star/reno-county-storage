@@ -140,3 +140,52 @@ document.addEventListener('click', (e) => {
     gtag('event', 'rent_click', { event_category: 'conversion_intent', event_label: href, transport_type: 'beacon' });
   }
 }, true);
+
+
+// Phone FAB — hidden while a hero that already shows the phone number is on
+// screen. On phones it otherwise sits on top of the hero content (it covered
+// the South Hutchinson address badge on load). The FAB markup comes after this
+// script on every page, so wait for the DOM before looking for it.
+function initPhoneFab() {
+  const phoneFab = document.querySelector('.phone-fab');
+  const phoneHeroes = [...document.querySelectorAll('.hero')].filter(h => h.querySelector('a[href^="tel:"]'));
+  if (!phoneFab || !phoneHeroes.length) return;
+
+  const inView = (el) => {
+    const r = el.getBoundingClientRect();
+    return r.bottom > 0 && r.top < window.innerHeight;
+  };
+  // Set the starting state synchronously so the button doesn't flash in and fade out on load
+  const onScreen = new Set(phoneHeroes.filter(inView));
+  phoneFab.classList.toggle('is-hidden', onScreen.size > 0);
+
+  const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) onScreen.add(entry.target);
+      else onScreen.delete(entry.target);
+    });
+    phoneFab.classList.toggle('is-hidden', onScreen.size > 0);
+  });
+  phoneHeroes.forEach(h => heroObserver.observe(h));
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initPhoneFab);
+} else {
+  initPhoneFab();
+}
+
+
+// Click-to-load maps — swap the placeholder for the Google embed on demand
+document.querySelectorAll('.map-facade-load').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const facade = btn.closest('.map-facade');
+    const iframe = document.createElement('iframe');
+    iframe.src = facade.dataset.mapSrc;
+    iframe.title = facade.dataset.mapTitle;
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = 'no-referrer-when-downgrade';
+    facade.replaceWith(iframe);
+    iframe.focus();
+  });
+});

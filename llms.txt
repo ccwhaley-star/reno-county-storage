@@ -1,10 +1,10 @@
 # Reno County Storage
 
-> Affordable, secure self storage in Hutchinson and South Hutchinson, Kansas. Locally owned and operated by Midwest Storage Solutions, LLC.
+> Affordable, secure self storage in Hutchinson and South Hutchinson, Kansas. Kansan-owned, veteran-owned, and operated by Midwest Storage Solutions, LLC.
 
 ## About
 
-Reno County Storage offers self storage units at two convenient locations in Reno County, Kansas. We provide month-to-month rentals, 24/7 security monitoring, drive-up access, a free lock with every unit, and a 10% military discount. We are a veteran-owned business.
+Reno County Storage offers drive-up self storage units at two locations in Reno County, Kansas. We provide month-to-month rentals, 24/7 security camera monitoring, a free lock with every unit, online rental and payments, and a 10% discount for active duty military, veterans, and first responders. We are a veteran-owned business and a member of the Kansas Self Storage Owners Association.
 
 ## Locations
 
@@ -12,11 +12,17 @@ Reno County Storage offers self storage units at two convenient locations in Ren
 - Address: 2511 E 17th Ave, Hutchinson, KS 67501
 - Phone: (620) 662-7336
 - Hours: Mon-Sat 9am-6pm, Sun Noon-4pm
+- Units from $65/month
+- Fenced and gated access, drive-up units
+- Rent online: https://renocountystorage-hutchinson.storageunitsoftware.com/pages/Rent
 
 ### South Hutchinson
 - Address: 712 N Walnut St, South Hutchinson, KS 67505
 - Phone: (620) 662-7336
 - Hours: Mon-Sat 9am-6pm, Sun Noon-4pm
+- Units from $55/month
+- Drive-up units, 24/7 camera surveillance
+- Rent online: https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent
 
 ## Unit Sizes
 
@@ -34,26 +40,40 @@ Reno County Storage offers self storage units at two convenient locations in Ren
 ## Features
 
 - Month-to-month leases with no long-term contracts
-- 24/7 security camera monitoring
-- Drive-up access at every unit
+- 24/7 security camera monitoring at both locations
+- Drive-up access
 - Free lock included with every rental
-- 10% military discount for active duty and veterans
+- 10% discount for active duty military, veterans, and first responders
 - Online booking and payments
 - Tenant protection plans available ($2,000-$5,000 coverage)
 - No hidden fees
 
-## Blog Posts
-
-- [Why Storage Facility Security Matters](https://www.renocountystorage.com/posts/why-storage-facility-security-matters): What makes a storage facility truly secure — cameras, lighting, access control, and what to ask before renting.
-
 ## Pages
 
-- Home: https://www.renocountystorage.com/
-- Size Guide: https://www.renocountystorage.com/size-guide
-- Tenant Protection: https://www.renocountystorage.com/tenant-protection
-- Security: https://www.renocountystorage.com/security
-- FAQ: https://www.renocountystorage.com/faq
-- Blog: https://www.renocountystorage.com/blog
+- [Home](https://www.renocountystorage.com/): Both locations, starting prices, hours, and online rental links.
+- [Size Guide](https://www.renocountystorage.com/size-guide): Compare 5x10 to 20x40 units with what fits in each.
+- [FAQ](https://www.renocountystorage.com/faq): Renting, access, leases, payments, and discounts.
+- [Tenant Protection](https://www.renocountystorage.com/tenant-protection): Coverage for burglary, water damage, fire, and more.
+- [Security](https://www.renocountystorage.com/security): 24/7 cameras with AI detection and color night vision at both locations.
+- [Storage Near Newton, KS](https://www.renocountystorage.com/storage-near-newton): About 35 minutes west of Newton on US-50.
+- [Storage Near McPherson, KS](https://www.renocountystorage.com/storage-near-mcpherson): About 30 minutes southwest of McPherson via K-61.
+- [Blog](https://www.renocountystorage.com/blog): Storage tips, moving guides, and organization advice.
+
+## Blog Posts
+
+- [How to Choose the Right Storage Unit Size](https://www.renocountystorage.com/posts/choosing-right-storage-unit-size): Common sizes from 5x10 up, so you find the right fit without overpaying.
+- [Climate-Controlled vs Regular Storage](https://www.renocountystorage.com/posts/climate-controlled-vs-regular): When you truly need climate control and when a standard drive-up unit is the smarter choice.
+- [5 Things People Forget When Renting a Storage Unit](https://www.renocountystorage.com/posts/5-things-people-forget): Avoid common mistakes with insurance, moisture, sizing, packing, and lease terms.
+- [What Is Tenant Protection?](https://www.renocountystorage.com/posts/what-is-tenant-protection): Why homeowner's insurance may not cover stored items, and what tenant protection covers.
+- [Why Storage Facility Security Matters](https://www.renocountystorage.com/posts/why-storage-facility-security-matters): Cameras, lighting, access control, and what to ask before renting.
+- [Tips for Storing Items Long-Term](https://www.renocountystorage.com/posts/tips-storing-items-long-term): How to pack, protect, and organize a unit for months or years.
+- [Protect Belongings from Kansas Humidity](https://www.renocountystorage.com/posts/protect-belongings-kansas-humidity): Keeping furniture, electronics, and clothing safe from moisture.
+- [Seasonal Storage Calendar for Hutchinson](https://www.renocountystorage.com/posts/seasonal-storage-calendar): A month-by-month guide to rotating seasonal items in and out of storage.
+- [Storage During a Home Renovation](https://www.renocountystorage.com/posts/storage-during-renovation): Protecting belongings from dust and damage, and what size unit you need.
+- [Storage Solutions for Reno County Homeowners](https://www.renocountystorage.com/posts/storage-solutions-reno-county-homeowners): Using a unit for renovations, seasonal gear, and decluttering.
+- [Moving to Hutchinson, KS?](https://www.renocountystorage.com/posts/moving-to-hutchinson): Neighborhoods, local resources, and using storage to ease a move to Reno County.
+- [How Self Storage Makes Moving Easier](https://www.renocountystorage.com/posts/self-storage-makes-moving-easier): Reducing stress when moving to or from Hutchinson.
+- [A Student's Guide to Storage in Hutchinson](https://www.renocountystorage.com/posts/hutchinson-student-storage-guide): What HutchCC students should bring, store, and keep over the summer.
 
 ## Contact
 
