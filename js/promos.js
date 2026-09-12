@@ -403,3 +403,38 @@ function initLeadPopup(pageKey) {
     });
   }
 }
+
+
+/* ── GA4 event tracking for the landing pages ────────────────
+   These two listeners live in js/main.js for the rest of the site, but the
+   landing pages deliberately do NOT load main.js (they inline only what they
+   need, to keep ad-click pages light). Without this block /hutchinson and
+   /south-hutchinson fired the Google Ads conversion on portal clicks but sent
+   GA4 nothing at all — so paid traffic showed 0 key events while the pages
+   were actually converting. Keep in sync with the same handlers in main.js.
+   ──────────────────────────────────────────────────────────── */
+
+// Phone click tracking (GA4 key event)
+document.querySelectorAll('a[href^="tel:"]').forEach(function (el) {
+  el.addEventListener('click', function () {
+    if (typeof gtag === 'function') {
+      gtag('event', 'phone_call', {
+        event_category: 'contact',
+        event_label: el.getAttribute('href').replace('tel:', '')
+      });
+    }
+  });
+});
+
+// Rent click tracking (GA4 key event) — fires on rental-intent links, never on
+// Pay/Login. Capture phase so it still runs when gtag_report_conversion()
+// navigates the page away to the rental portal.
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a[href]');
+  if (!a) return;
+  var href = a.getAttribute('href') || '';
+  if (/\/login/i.test(href)) return;
+  if (/(\/pages\/rent|openreservation|\/reserve)/i.test(href) && typeof gtag === 'function') {
+    gtag('event', 'rent_click', { event_category: 'conversion_intent', event_label: href, transport_type: 'beacon' });
+  }
+}, true);
