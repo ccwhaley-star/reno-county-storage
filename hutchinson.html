@@ -664,13 +664,18 @@
     .phone-fab:hover { transform: scale(1.1); }
     .phone-fab svg { width: 24px; height: 24px; }
   </style>
+  <!-- Google tag (gtag.js). Loaded async and immediately: this previously
+       waited for the load event PLUS another 1000ms, so anyone who bounced
+       before then fired nothing at all — no GA4 session and no Ads
+       conversion. Over 30 days Ads counted 131 clicks to these two pages
+       against 72 GA4 sessions. `async` keeps the tag off the critical path
+       without trading away the measurement these pages exist to produce.
+       One gtag.js serves both the Ads and GA4 configs below. -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18039175000"></script>
   <script>
     window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
     gtag('js',new Date());gtag('config','AW-18039175000');gtag('config','G-4GW3P1EYC4');
-    window.addEventListener('load',function(){setTimeout(function(){
-      var s=document.createElement('script');s.async=true;
-      s.src='https://www.googletagmanager.com/gtag/js?id=AW-18039175000';document.head.appendChild(s);
-    },1000);});
   </script>
   <script>
     function gtag_report_conversion(url){
