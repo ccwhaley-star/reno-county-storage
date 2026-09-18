@@ -176,16 +176,42 @@ if (document.readyState === 'loading') {
 }
 
 
-// Click-to-load maps — swap the placeholder for the Google embed on demand
-document.querySelectorAll('.map-facade-load').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const facade = btn.closest('.map-facade');
+// Maps load when you scroll to them, not on page load — the placeholder holds
+// the space until then. Tapping "Show map" still works for anyone who gets
+// there first. Lighthouse never scrolls, so the map stays out of the measured load.
+(function () {
+  function loadMap(facade) {
+    if (!facade || !facade.isConnected) return null;
     const iframe = document.createElement('iframe');
     iframe.src = facade.dataset.mapSrc;
     iframe.title = facade.dataset.mapTitle;
     iframe.allowFullscreen = true;
     iframe.referrerPolicy = 'no-referrer-when-downgrade';
     facade.replaceWith(iframe);
-    iframe.focus();
+    return iframe;
+  }
+
+  const facades = [...document.querySelectorAll('.map-facade')];
+  if (!facades.length) return;
+
+  document.querySelectorAll('.map-facade-load').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const frame = loadMap(btn.closest('.map-facade'));
+      if (frame) frame.focus();
+    });
   });
-});
+
+  if (!('IntersectionObserver' in window)) {
+    facades.forEach(loadMap);
+    return;
+  }
+  // A little lead time so the map is ready by the time it's actually on screen.
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      io.unobserve(entry.target);
+      loadMap(entry.target);
+    });
+  }, { rootMargin: '200px 0px' });
+  facades.forEach(f => io.observe(f));
+})();

@@ -949,19 +949,36 @@
     initPromoPage('hutchinson', 'southHutchinson');
     initLeadPopup('hutchinson');
 
-    // Click-to-load map: swap the placeholder for the Google embed on demand
-    document.querySelectorAll('.map-facade-load').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var facade = btn.closest('.map-facade');
+    // The map loads when you scroll to it; tapping "Show map" still works too.
+    (function () {
+      function loadMap(facade) {
+        if (!facade || !facade.isConnected) return null;
         var iframe = document.createElement('iframe');
         iframe.src = facade.dataset.mapSrc;
         iframe.title = facade.dataset.mapTitle;
         iframe.allowFullscreen = true;
         iframe.referrerPolicy = 'no-referrer-when-downgrade';
         facade.replaceWith(iframe);
-        iframe.focus();
+        return iframe;
+      }
+      var facades = Array.prototype.slice.call(document.querySelectorAll('.map-facade'));
+      if (!facades.length) return;
+      document.querySelectorAll('.map-facade-load').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var frame = loadMap(btn.closest('.map-facade'));
+          if (frame) frame.focus();
+        });
       });
-    });
+      if (!('IntersectionObserver' in window)) { facades.forEach(loadMap); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          io.unobserve(entry.target);
+          loadMap(entry.target);
+        });
+      }, { rootMargin: '200px 0px' });
+      facades.forEach(function (f) { io.observe(f); });
+    })();
   </script>
 
   <script type="application/ld+json">
