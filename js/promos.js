@@ -54,7 +54,7 @@ const PROMOS = {
     portalUrl: 'https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent',
     offerText: '50% Off Your First 2 Months',
     promoCode: 'SH50',
-    expires: '2026-09-30',
+    expires: '2026-10-30',
     discountRate: 0.5,
     discountMonths: 2,
     crossSellTemplate: 'Need this size today? Our {location} location at {address} has availability &mdash; <strong>{offer}</strong>.',
