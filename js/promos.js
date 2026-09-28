@@ -28,7 +28,7 @@ const PROMOS = {
     portalUrl: 'https://renocountystorage-hutchinson.storageunitsoftware.com/pages/Rent',
     offerText: '50% Off Your First Month',
     promoCode: 'HALF17',
-    expires: '2026-09-30',
+    expires: '2026-09-27', // ended early 2026-09-28 (17th Ave ads paused)
     discountRate: 0.5,
     discountMonths: 1,
     /* Intro used on THIS page's ineligible cards, pointing at the sister
