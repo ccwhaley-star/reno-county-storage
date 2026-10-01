@@ -306,13 +306,21 @@ function initPromoPage(pageKey, sisterKey) {
 }
 
 /* ── lead-capture popup ──────────────────────────────────────
-   Exit-intent on desktop, 7s dwell fallback everywhere, plus a
-   scroll trigger when the pricing grid enters the viewport —
-   whichever fires first.
+   Exit-intent on desktop, and otherwise only after a long dwell.
+   It used to fire at 7 seconds AND the moment the pricing grid
+   scrolled into view — on a page whose whole job is to get people
+   to the pricing grid. The owner (2026-10-01): keep the pop-up but
+   give it a much longer delay. Reading the prices is not a signal
+   to interrupt; leaving is.
    Suppressed once dismissed this session, permanently after a
    submission, and never shown to visitors who already clicked
    through to the rental portal. Submits to Netlify Forms via
    AJAX (form must exist in the static HTML for detection). */
+
+/* How long a visitor reads before the callback pop-up may appear
+   (exit-intent on desktop can still fire sooner). 45s is roughly the time
+   it takes to read the hero and scan the pricing cards once. */
+var LEAD_POPUP_DELAY_MS = 45000;
 
 function initLeadPopup(pageKey) {
   var promo = PROMOS[pageKey];
@@ -374,17 +382,7 @@ function initLeadPopup(pageKey) {
   document.addEventListener('mouseout', function (e) {
     if (!e.relatedTarget && e.clientY <= 0) show();
   });
-  setTimeout(show, 7000);
-  var unitsEl = document.getElementById('units');
-  if (unitsEl && typeof IntersectionObserver === 'function') {
-    var unitsObserver = new IntersectionObserver(function (entries) {
-      if (entries.some(function (e) { return e.isIntersecting; })) {
-        unitsObserver.disconnect();
-        show();
-      }
-    }, { threshold: 0.2 });
-    unitsObserver.observe(unitsEl);
-  }
+  setTimeout(show, LEAD_POPUP_DELAY_MS);
 
   // Dismissals
   modal.querySelectorAll('[data-lead-dismiss]').forEach(function (elm) {

@@ -31,8 +31,8 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=optional" rel="stylesheet"></noscript>
   <link rel="preload" href="img/s-hutch-hero-800.webp" as="image" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
   <link rel="preload" href="img/s-hutch-hero.webp" as="image" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
   <style>
@@ -309,29 +309,6 @@
     }
 
     /* ── Social Proof Bar ── */
-    .proof-bar {
-      background: #fff;
-      border-bottom: 1px solid var(--border);
-      padding: 20px 0;
-    }
-    .proof-bar-inner {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-    .proof-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.88rem;
-      color: var(--gray);
-      font-weight: 500;
-    }
-    .proof-item svg { width: 20px; height: 20px; color: var(--orange); flex-shrink: 0; }
-    .proof-item strong { color: var(--dark); }
-    .proof-item img { height: 40px; width: auto; }
 
     /* ── Units Section ── */
     .section { padding: 64px 0; }
@@ -342,7 +319,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--orange);
+      color: #d4411a; /* brand orange darkened for 0.72rem text: 3.1:1 -> 4.6:1 on white */
       margin-bottom: 8px;
     }
     .section h2 {
@@ -403,7 +380,7 @@
       padding: 3px 10px;
       border-radius: 100px;
       background: var(--light-gray);
-      color: var(--gray);
+      color: #4b5563; /* was --gray #6b7280 (4.4:1); 7:1 on the tag background */
     }
     .unit-tag-urgent { background: #fff7ed; color: #c2410c; }
     .unit-tag-avail { background: #f0fdf4; color: #166534; }
@@ -475,6 +452,12 @@
     }
 
     /* ── Reviews ── */
+    .google-rating { display: inline-flex; align-items: center; gap: 12px; margin: 0 0 24px; padding: 10px 16px; border: 1px solid #e5e7eb; border-radius: 999px; background: #fff; text-decoration: none; color: inherit; }
+    .google-rating:hover { border-color: var(--orange); }
+    .google-icon { width: 22px; height: 22px; flex-shrink: 0; }
+    .google-rating-score { font-weight: 700; color: var(--dark); white-space: nowrap; }
+    .google-rating-score strong { font-size: 1.1rem; margin-right: 4px; }
+    .google-rating-text { font-size: 0.85rem; color: var(--gray); white-space: nowrap; }
     .reviews-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -601,7 +584,6 @@
     @media (max-width: 768px) {
       .hero { padding: 40px 0 48px; }
       .location-grid { grid-template-columns: 1fr; }
-      .proof-bar-inner { gap: 20px; }
       .lp-phone-text { display: none; }
     }
     @media (max-width: 480px) {
@@ -703,7 +685,7 @@
           Reno County Storage
         </div>
         <div class="lp-header-cta">
-          <a href="tel:6206627336" class="lp-phone">
+          <a href="tel:6206627336" class="lp-phone" aria-label="Call (620) 662-7336">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
             <span class="lp-phone-text">(620) 662-7336</span>
           </a>
@@ -768,28 +750,6 @@
     </div>
   </section>
 
-  <!-- Social Proof Bar -->
-  <div class="proof-bar">
-    <div class="container">
-      <div class="proof-bar-inner">
-        <div class="proof-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <span><strong>4.5</strong> stars on Google</span>
-        </div>
-        <div class="proof-item">
-          <img src="img/kssoa.avif" alt="Kansas Self Storage Owners Association Member" width="248" height="180" loading="lazy">
-        </div>
-        <div class="proof-item">
-          <img src="img/veteran-badge1.webp" alt="Veteran Owned Business" width="700" height="700" loading="lazy">
-        </div>
-        <div class="proof-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          <span><strong>Rent online</strong> in 5 min</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Units (cards rendered from PROMO config in js/promos.js) -->
   <section class="section" id="units">
     <div class="container">
@@ -808,30 +768,35 @@
     <div class="container">
       <span class="section-label">Testimonials</span>
       <h2>What Customers Say</h2>
-      <p class="section-desc">Real reviews from South Hutchinson renters. <a href="https://www.google.com/maps/search/?api=1&query=Reno+County+Storage+South+Hutchinson+KS" target="_blank" rel="noopener" style="color: var(--orange); font-weight: 600;">See all reviews on Google &rarr;</a></p>
+      <p class="section-desc">Real Google reviews from Reno County Storage customers.</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=Reno+County+Storage+South+Hutchinson+KS" target="_blank" rel="noopener" class="google-rating">
+        <svg class="google-icon" aria-label="Google" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        <span class="google-rating-score"><strong>4.5</strong> &#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="google-rating-text">Based on 72 Google reviews</span>
+      </a>
       <div class="reviews-grid">
         <div class="review-card">
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-text">"The South Hutch location is super convenient and well-maintained. Owners are responsive and prices are very reasonable compared to other options in town."</p>
+          <p class="review-text">"Im not even sure how many years ive been using this storage unit but I have not had one complaint! I never even remember my storage number and they are always there to help! Great people!"</p>
           <div class="review-author">
-            <div class="review-avatar">RL</div>
-            <div><div class="review-name">Rachel L.</div><div class="review-loc">South Hutchinson, KS</div></div>
+            <div class="review-avatar">TP</div>
+            <div><div class="review-name">Tiffany P.</div><div class="review-loc">Hutchinson, KS</div></div>
           </div>
         </div>
         <div class="review-card">
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-text">"Called in because I was in TX at the time &mdash; got everything processed in less than 5 minutes and was very descriptive about where the unit was."</p>
+          <p class="review-text">"Cathy was very friendly and helpful on our call. I also received text confirmations of my storage info once it was confirmed which was also helpful and reassuring."</p>
           <div class="review-author">
-            <div class="review-avatar">JM</div>
-            <div><div class="review-name">J. Martinez</div><div class="review-loc">Reno County, KS</div></div>
+            <div class="review-avatar">KV</div>
+            <div><div class="review-name">Katie V.</div><div class="review-loc">Hutchinson, KS</div></div>
           </div>
         </div>
         <div class="review-card">
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-text">"Friendly, responsive owners who actually answer the phone. The facility is well-maintained and I feel good about my stuff being here."</p>
+          <p class="review-text">"I've had a rental unit there for over a year. They are very nice and helpful people. The units are secure and clean."</p>
           <div class="review-author">
-            <div class="review-avatar">DB</div>
-            <div><div class="review-name">Derek B.</div><div class="review-loc">Reno County, KS</div></div>
+            <div class="review-avatar">SE</div>
+            <div><div class="review-name">Shawnda E.</div><div class="review-loc">Hutchinson, KS</div></div>
           </div>
         </div>
       </div>
