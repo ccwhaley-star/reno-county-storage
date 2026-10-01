@@ -13,6 +13,12 @@
                                            and rentable at regular price, but
                                            excluded from the promo — no badge,
                                            no waitlist, no cross-sell
+     - sizes[].discountRate              → optional per-size override of the
+                                           page's discountRate (e.g. a deeper
+                                           cut on the sizes with vacancies and
+                                           a shallower one on sizes that are
+                                           nearly full). Card badges and quote
+                                           prices follow the size's own rate.
    When today's date is past `expires`, the banner, badges, and
    discounted prices disappear automatically and the page falls
    back to regular pricing.
@@ -52,17 +58,21 @@ const PROMOS = {
     locationName: 'South Hutchinson',
     addressShort: '712 N Walnut St',
     portalUrl: 'https://renocountystorage-southhutch.storageunitsoftware.com/pages/Rent',
-    offerText: '50% Off Your First 2 Months',
-    promoCode: 'SH50',
+    /* 2026-10-01: matched Storage Hutch (304 N Washington, two blocks away)
+       who run 75% off 2 months on 10x10 / 10x15 — exactly the two sizes we
+       have vacancies in. 10x20s are 55 of 58 full and our 50% already beats
+       their 25%, so that size keeps the shallower cut (per-size override). */
+    offerText: '75% Off Your First 2 Months',
+    promoCode: 'SH75',
     expires: '2026-10-30',
-    discountRate: 0.5,
+    discountRate: 0.75,
     discountMonths: 2,
     crossSellTemplate: 'Need this size today? Our {location} location at {address} has availability &mdash; <strong>{offer}</strong>.',
     sizes: [
       { size: '5x10',  label: 'Large Closet',         sqft: 50,  price: '$55/mo',  eligible: true,  desc: 'Bed frame, couch, and washing machine with room to spare.', tags: [{ text: 'Insulated', cls: '' }, { text: '24/7 Camera', cls: '' }, { text: 'Only 3 Left', cls: 'unit-tag-urgent' }] },
       { size: '10x10', label: 'Average Bedroom',      sqft: 100, price: '$65/mo',  eligible: true,  desc: 'Larger cabinets and several appliances. Secure gate access.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Secure Gate', cls: '' }, { text: 'Available', cls: 'unit-tag-avail' }] },
       { size: '10x15', label: 'Large Bedroom',        sqft: 150, price: '$75/mo',  eligible: true,  desc: 'Fits a one-bedroom house: table, couch, cabinets, appliances.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Insulated', cls: '' }, { text: 'Available', cls: 'unit-tag-avail' }] },
-      { size: '10x20', label: 'Single Car Garage',    sqft: 200, price: '$105/mo', eligible: true,  desc: 'Large appliances, furniture, mattresses, or a small vehicle.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Vehicle OK', cls: '' }, { text: 'Available', cls: 'unit-tag-avail' }] },
+      { size: '10x20', label: 'Single Car Garage',    sqft: 200, price: '$105/mo', eligible: true,  discountRate: 0.5, desc: 'Large appliances, furniture, mattresses, or a small vehicle.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Vehicle OK', cls: '' }, { text: 'Available', cls: 'unit-tag-avail' }] },
       { size: '15x30', label: 'Large House',          sqft: 450, price: '$190/mo', eligible: false, desc: 'RV, boat, or full large-house contents with drive-up access.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'RV / Boat', cls: '' }, { text: 'Waitlist', cls: 'unit-tag-urgent' }] },
       { size: '15x40', label: 'Small Warehouse',      sqft: 600, price: '$250/mo', eligible: false, noPromo: true, desc: 'Contractor storage: equipment, inventory, or a full workshop. Regular rate.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Commercial', cls: '' }, { text: 'Only 1 Left', cls: 'unit-tag-urgent' }] },
       { size: '20x40', label: 'Industrial Warehouse', sqft: 800, price: '$350/mo', eligible: false, desc: 'Large-scale commercial and industrial storage, fully monitored.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Industrial', cls: '' }, { text: 'Waitlist', cls: 'unit-tag-urgent' }] }
@@ -109,6 +119,19 @@ function promoDurationText(promo) {
   return promo.discountMonths === 1
     ? 'for your first month'
     : 'for your first ' + promo.discountMonths + ' months';
+}
+
+/* A size's discount: its own override, else the page's. */
+function promoSizeRate(promo, s) {
+  return typeof s.discountRate === 'number' ? s.discountRate : promo.discountRate;
+}
+
+/* "75% Off Your First 2 Months", built from the SIZE's rate — on a page with
+   mixed tiers the card badge must say what that card actually gets, not the
+   headline offer. */
+function promoSizeOfferText(promo, s) {
+  var pct = Math.round(promoSizeRate(promo, s) * 100);
+  return pct + '% Off ' + (promo.discountMonths === 1 ? 'Your First Month' : 'Your First ' + promo.discountMonths + ' Months');
 }
 
 function promoMinPrice(promo) {
@@ -165,9 +188,9 @@ function initPromoPage(pageKey, sisterKey) {
     if (active) {
       // Sale floor: cheapest promo-eligible size at the discounted rate.
       var eligiblePrices = promo.sizes.filter(function (s) { return s.eligible; })
-        .map(function (s) { return promoPriceNumber(s.price); });
+        .map(function (s) { return promoPriceNumber(s.price) * (1 - promoSizeRate(promo, s)); });
       if (eligiblePrices.length) {
-        var floor = Math.min.apply(null, eligiblePrices) * (1 - promo.discountRate);
+        var floor = Math.min.apply(null, eligiblePrices);
         el('promo-from-price').textContent = 'from ' + promoMoney(floor) + '/mo ' +
           (promo.discountMonths === 1 ? 'your first month' : 'your first ' + promo.discountMonths + ' months');
       } else {
@@ -179,7 +202,7 @@ function initPromoPage(pageKey, sisterKey) {
   }
   if (el('promo-hero-sub')) {
     el('promo-hero-sub').textContent = active
-      ? 'Get ' + promo.offerText.toLowerCase() + ' on select units with code ' + promo.promoCode + '. Drive-up access, free lock included, no hidden fees. Rent online and move in today.'
+      ? 'Get ' + promo.offerText.toLowerCase() + ' on 5×10 through 10×15 units with code ' + promo.promoCode + ' (10×20s half off). Drive-up access, free lock included, no hidden fees. Rent online and move in today.'
       : 'Drive-up access, 24/7 security cameras, free lock included. No long-term contracts, no hidden fees. Rent online and move in today.';
   }
 
@@ -204,7 +227,7 @@ function initPromoPage(pageKey, sisterKey) {
         regEl.style.display = '';
         regEl.textContent = '$' + regular + '/mo';
         dispEl.style.color = 'var(--green)';
-        dispEl.textContent = promoMoney(regular * (1 - promo.discountRate)) + '/mo';
+        dispEl.textContent = promoMoney(regular * (1 - promoSizeRate(promo, s))) + '/mo';
         moEl.innerHTML = promoDurationText(promo) + ' &bull; then $' + regular + '/mo &bull; code ' + promo.promoCode;
       } else {
         regEl.style.display = 'none';
@@ -227,12 +250,12 @@ function initPromoPage(pageKey, sisterKey) {
       var promoted = active && s.eligible;
       var priceHtml = promoted
         ? '<div class="unit-price-original">$' + regular + '</div><div class="unit-price unit-price-sale">' +
-          promoMoney(regular * (1 - promo.discountRate)) + '</div><span class="unit-price-mo">/mo for ' +
+          promoMoney(regular * (1 - promoSizeRate(promo, s))) + '</div><span class="unit-price-mo">/mo for ' +
           promo.discountMonths + ' mo</span>'
         : '<div class="unit-price">$' + regular + '</div><span class="unit-price-mo">/month</span>';
 
       var badgeHtml = promoted
-        ? '<div class="unit-promo">' + promo.offerText + ' &bull; Code ' + promo.promoCode + '</div>'
+        ? '<div class="unit-promo">' + promoSizeOfferText(promo, s) + ' &bull; Code ' + promo.promoCode + '</div>'
         : (active && !s.eligible && !s.noPromo
           ? '<div class="unit-waitlist-label">High demand &mdash; join the waitlist</div>'
           : '');
