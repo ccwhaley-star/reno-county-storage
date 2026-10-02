@@ -4,11 +4,15 @@
 // without anything running locally:
 //   1. Instant auto-text to the lead from the Reno County Storage number
 //      (creates the conversation thread the team works from).
-//   2. Optional alert text to staff numbers (LEAD_ALERT_TO).
+//   2. Alert text to the team. The auto-text above is outgoing, so on its
+//      own it raises no notification. The alert is sent FROM another line
+//      in the workspace TO the Reno County Storage number, so it lands in
+//      that inbox as an incoming text and everyone on the inbox is notified.
 //
 // Required Netlify env var:  QUO_API_KEY   (Quo workspace API key)
 // Optional:                  QUO_FROM_NUMBER (default +16206627336)
-//                            LEAD_ALERT_TO   (comma-separated E.164 staff numbers)
+//                            QUO_ALERT_FROM  (default +16209018450, Midwest Storage line)
+//                            LEAD_ALERT_TO   (comma-separated E.164 numbers; default = the Reno inbox)
 
 const QUO_API = 'https://api.openphone.com/v1'; // Quo (formerly OpenPhone) public API
 
@@ -75,17 +79,18 @@ exports.handler = async function (event) {
     console.error('Lead phone did not normalize to E.164:', leadPhoneRaw);
   }
 
-  // 2. Alert texts to staff, if configured.
-  const alertTo = (process.env.LEAD_ALERT_TO || '')
-    .split(',').map(function (n) { return toE164(n); }).filter(Boolean);
-  if (alertTo.length) {
-    const alert = 'New callback lead: ' + leadName + ', ' + leadPhoneRaw +
-      (size ? ', wants ' + size : '') + ' — ' + location +
-      (promo && promo !== 'none' ? ' (code ' + promo + ')' : '') +
-      '. Work it from the Reno County Storage inbox.';
-    for (const n of alertTo) {
-      await sendText(apiKey, from, n, alert);
-    }
+  // 2. Alert text so the team is notified. Defaults to the Reno inbox
+  //    itself; LEAD_ALERT_TO overrides with other numbers.
+  const alertFrom = process.env.QUO_ALERT_FROM || '+16209018450';
+  const alertTo = (process.env.LEAD_ALERT_TO || from)
+    .split(',').map(function (n) { return toE164(n); })
+    .filter(function (n) { return n && n !== alertFrom; });
+  const alert = 'New callback lead: ' + leadName + ', ' + leadPhoneRaw +
+    (size ? ', wants ' + size : '') + ' — ' + location +
+    (promo && promo !== 'none' ? ' (code ' + promo + ')' : '') +
+    '. They were promised a call back.';
+  for (const n of alertTo) {
+    await sendText(apiKey, alertFrom, n, alert);
   }
 
   return { statusCode: 200, body: 'ok' };
