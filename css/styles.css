@@ -463,6 +463,21 @@ a.hero-badge:hover {
 }
 
 /* Google rating chip under the hero CTAs. Subtle glass card; links out to GBP. */
+/* Claim line introducing the Google rating. It reads as one unit with the pill
+   below it, so the 36px that sat above the pill moves up here and the gap
+   between the two stays small. */
+.hero-rating-claim {
+  margin: 36px 0 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-rating-claim + .hero-rating {
+  margin-top: 0;
+}
+
 .hero-rating {
   display: inline-flex;
   align-items: center;
