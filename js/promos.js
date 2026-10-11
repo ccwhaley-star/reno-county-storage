@@ -64,7 +64,7 @@ const PROMOS = {
        their 25%, so that size keeps the shallower cut (per-size override). */
     offerText: '75% Off Your First 2 Months',
     promoCode: 'SH75',
-    expires: '2026-10-30',
+    expires: '2027-02-28', // extended 2026-10-11: owner keeps it through winter (South Hutch at 89%)
     discountRate: 0.75,
     discountMonths: 2,
     crossSellTemplate: 'Need this size today? Our {location} location at {address} has availability &mdash; <strong>{offer}</strong>.',
