@@ -117,13 +117,16 @@ if (header) {
 }
 
 
-// Phone click tracking (GA4 key event)
+// Phone click tracking (GA4 key event). transport_type 'beacon' because a tel:
+// tap hands the phone to the dialer and backgrounds the page, which can drop a
+// normal request before it leaves (rent_click below does the same).
 document.querySelectorAll('a[href^="tel:"]').forEach(el => {
   el.addEventListener('click', () => {
     if (typeof gtag === 'function') {
       gtag('event', 'phone_call', {
         event_category: 'contact',
-        event_label: el.getAttribute('href').replace('tel:', '')
+        event_label: el.getAttribute('href').replace('tel:', ''),
+        transport_type: 'beacon'
       });
     }
   });
