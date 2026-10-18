@@ -575,6 +575,8 @@
       color: var(--gray);
     }
     .lp-footer a { color: var(--orange); }
+    .lp-footer-badges { display: flex; justify-content: center; align-items: center; gap: 16px; margin-bottom: 14px; }
+    .lp-footer-badges img { height: 64px; width: auto; border-radius: 6px; }
 
     /* ── Responsive ── */
     @media (max-width: 900px) {
@@ -859,6 +861,10 @@
   <!-- Minimal Footer -->
   <footer class="lp-footer">
     <div class="container">
+      <div class="lp-footer-badges">
+        <img src="img/kssoa.avif" alt="Kansas Self Storage Owners Association Member" width="248" height="180" loading="lazy">
+        <img src="img/veteran-badge1.webp" alt="Veteran Owned Business" width="700" height="700" loading="lazy">
+      </div>
       &copy; 2026 Midwest Storage Solutions, LLC &bull; <a href="https://www.renocountystorage.com">Reno County Storage</a> &bull; South Hutchinson, Kansas
     </div>
   </footer>
