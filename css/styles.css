@@ -2172,7 +2172,7 @@ a.hero-badge:hover {
   display: block;
 }
 
-/* --- Phone FAB --- */
+/* --- Phone FAB (mobile only) --- */
 .phone-fab {
   position: fixed;
   bottom: 24px;
@@ -2181,20 +2181,12 @@ a.hero-badge:hover {
   height: 56px;
   background: var(--orange);
   border-radius: 50%;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   z-index: 99;
   transition: all var(--transition);
-}
-
-/* Hidden while a hero that shows the phone number is on screen (main.js) */
-.phone-fab.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  transform: scale(0.6);
-  pointer-events: none;
 }
 
 .phone-fab::after {
@@ -2503,6 +2495,10 @@ a.hero-badge:hover {
 
   .protection-levels {
     flex-wrap: wrap;
+  }
+
+  .phone-fab {
+    display: flex;
   }
 }
 
