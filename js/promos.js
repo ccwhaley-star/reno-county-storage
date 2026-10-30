@@ -200,8 +200,8 @@ function initPromoPage(pageKey, sisterKey) {
   }
   if (el('promo-hero-sub')) {
     el('promo-hero-sub').textContent = active
-      ? 'Get ' + promo.offerText.toLowerCase() + ' on 5×10 through 10×20 units with code ' + promo.promoCode + '. Drive-up access, free lock included, no hidden fees. Rent online and move in today.'
-      : 'Drive-up access, 24/7 security cameras, free lock included. No long-term contracts, no hidden fees. Rent online and move in today.';
+      ? 'Get ' + promo.offerText.toLowerCase() + ' on 5×10 through 10×20 units with code ' + promo.promoCode + '. Drive-up access, free lock included, one-time $15 setup fee. Rent online and move in today.'
+      : 'Drive-up access, 24/7 security cameras, free lock included. No long-term contracts; one-time $15 setup fee. Rent online and move in today.';
   }
 
   // Quick-quote card
@@ -284,6 +284,11 @@ function initPromoPage(pageKey, sisterKey) {
         '</div>' +
       '</div>';
     }).join('');
+    // Required charges beyond rent, always shown (promo or not). Owner 2026-10-30:
+    // $15 one-time setup fee per customer; tenant protection required on every
+    // rental ($9 / $14 / $24 per month) unless the tenant shows their own policy.
+    grid.insertAdjacentHTML('afterend',
+      '<p class="promo-fine-print unit-fees-note">Plus a one-time $15 setup fee and required tenant protection from $9/mo (or use your own policy).</p>');
   }
 
   // 3. Fine print — shown only while the promo is live.
