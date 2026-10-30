@@ -5,7 +5,7 @@
    PROMOS below is the ONLY thing you edit to update offers:
      - offerText / promoCode / expires   → the offer itself
      - discountRate / discountMonths     → used to compute sale prices
-     - sizes[].eligible                  → true  = promo badge + Claim Deal
+     - sizes[].eligible                  → true  = promo badge + Rent now at the regular rate
                                            false = regular price + waitlist
                                                    label + cross-sell to the
                                                    sister location
@@ -78,7 +78,7 @@ const PROMOS = {
   }
 };
 
-const PROMO_FINE_PRINT = 'Offer valid at this location only. Cannot be combined with other offers, including military discount. Deposits and reservations at regular rates. New rentals only. Rent online at the regular rate and our team applies your discount &mdash; or mention the code when we call or text.';
+const PROMO_FINE_PRINT = 'Offer valid at this location only. Cannot be combined with other offers, including military discount. Deposits and reservations at regular rates. New rentals only. Rent at the regular rate; your discount is credited after move-in &mdash; or mention the code when we call or text.';
 
 /* Google Ads conversion label for lead-form submissions (separate from the
    portal-click label). Leave empty until the "phone lead" conversion action
@@ -226,7 +226,7 @@ function initPromoPage(pageKey, sisterKey) {
         regEl.textContent = '$' + regular + '/mo';
         dispEl.style.color = 'var(--green)';
         dispEl.textContent = promoMoney(regular * (1 - promoSizeRate(promo, s))) + '/mo';
-        moEl.innerHTML = promoDurationText(promo) + ' &bull; then $' + regular + '/mo &bull; code ' + promo.promoCode;
+        moEl.innerHTML = promoDurationText(promo) + ' &bull; then $' + regular + '/mo &bull; code ' + promo.promoCode + ' &bull; rent at $' + regular + '/mo, discount credited after move-in';
       } else {
         regEl.style.display = 'none';
         dispEl.style.color = 'var(--orange)';
@@ -253,7 +253,7 @@ function initPromoPage(pageKey, sisterKey) {
         : '<div class="unit-price">$' + regular + '</div><span class="unit-price-mo">/month</span>';
 
       var badgeHtml = promoted
-        ? '<div class="unit-promo">' + promoSizeOfferText(promo, s) + ' &bull; Code ' + promo.promoCode + '</div>'
+        ? '<div class="unit-promo">' + promoSizeOfferText(promo, s) + ' &bull; Code ' + promo.promoCode + ' &bull; credited after move-in</div>'
         : (active && !s.eligible && !s.noPromo
           ? '<div class="unit-waitlist-label">High demand &mdash; join the waitlist</div>'
           : '');
@@ -266,7 +266,7 @@ function initPromoPage(pageKey, sisterKey) {
 
       var ctaHtml = (active && !s.eligible && !s.noPromo)
         ? '<a href="' + promo.portalUrl + '" onclick="return gtag_report_conversion(\'' + promo.portalUrl + '\');" class="unit-waitlist">Join Waitlist</a>'
-        : '<a href="' + promo.portalUrl + '" onclick="return gtag_report_conversion(\'' + promo.portalUrl + '\');" class="unit-rent">' + (promoted ? 'Claim Deal' : 'Rent Now') + '</a>';
+        : '<a href="' + promo.portalUrl + '" onclick="return gtag_report_conversion(\'' + promo.portalUrl + '\');" class="unit-rent">' + (promoted ? 'Rent now at $' + regular + '/mo' : 'Rent Now') + '</a>';
 
       return '<div class="unit-card">' +
         '<div class="unit-card-top">' +
