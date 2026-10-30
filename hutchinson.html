@@ -41,6 +41,8 @@
     :root {
       --orange: #FF5829;
       --orange-hover: #e84d20;
+      --orange-a11y: #D14822;       /* same hue, 4.5:1 on white (css/styles.css) */
+      --orange-a11y-hover: #BD411E;
       --dark: #1a1a1a;
       --text: #374151;
       --gray: #6b7280;
@@ -414,11 +416,11 @@
       border-radius: 8px;
       font-weight: 700;
       font-size: 0.88rem;
-      background: var(--orange);
+      background: var(--orange-a11y);
       color: #fff;
       transition: all 0.15s;
     }
-    .unit-rent:hover { background: var(--orange-hover); transform: translateY(-1px); }
+    .unit-rent:hover { background: var(--orange-a11y-hover); transform: translateY(-1px); }
     .unit-waitlist {
       display: block;
       text-align: center;
