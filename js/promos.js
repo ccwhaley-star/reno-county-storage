@@ -5,7 +5,7 @@
    PROMOS below is the ONLY thing you edit to update offers:
      - offerText / promoCode / expires   → the offer itself
      - discountRate / discountMonths     → used to compute sale prices
-     - sizes[].eligible                  → true  = promo badge + Claim Deal
+     - sizes[].eligible                  → true  = promo badge + Rent now at the regular rate
                                            false = regular price + waitlist
                                                    label + cross-sell to the
                                                    sister location
@@ -43,12 +43,12 @@ const PROMOS = {
     crossSellTemplate: 'This size is in high demand. Our {location} location may have availability &mdash; <strong>{offer}</strong>.',
     sizes: [
       { size: '5x10',  label: 'Large Closet',         sqft: 50,  price: '$65/mo',  eligible: true, desc: 'Bed frame, couch, and washing machine with room to spare. Easy 5-foot opening.', tags: [{ text: 'Insulated', cls: '' }, { text: '24/7 Camera', cls: '' }, { text: 'Available', cls: 'unit-tag-avail' }] },
-      { size: '8x10',  label: 'Large Walk-in Closet', sqft: 80,  price: '$85/mo',  eligible: true, desc: 'Space for bookshelves, bedside tables, and coffee tables. Drive-up access.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Insulated', cls: '' }, { text: 'Only 2 Left', cls: 'unit-tag-urgent' }] },
-      { size: '10x10', label: 'Average Bedroom',      sqft: 100, price: '$95/mo',  eligible: true, desc: 'Larger cabinets and several appliances. Fenced lot with secure gate.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Secure Gate', cls: '' }, { text: 'Only 3 Left', cls: 'unit-tag-urgent' }] },
+      { size: '8x10',  label: 'Large Walk-in Closet', sqft: 80,  price: '$85/mo',  eligible: true, desc: 'Space for bookshelves, bedside tables, and coffee tables. Drive-up access.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Insulated', cls: '' }] },
+      { size: '10x10', label: 'Average Bedroom',      sqft: 100, price: '$95/mo',  eligible: true, desc: 'Larger cabinets and several appliances. Fenced lot with secure gate.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Secure Gate', cls: '' }] },
       { size: '10x15', label: 'Large Bedroom',        sqft: 150, price: '$105/mo', eligible: true, desc: 'Fits a one-bedroom house: dining table, couch, cabinets, large appliances.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Insulated', cls: '' }, { text: 'Available', cls: 'unit-tag-avail' }] },
       { size: '10x20', label: 'Single Car Garage',    sqft: 200, price: '$125/mo', eligible: true, desc: 'Large appliances, furniture, multiple mattresses, or a small car.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Vehicle OK', cls: '' }, { text: 'Available', cls: 'unit-tag-avail' }] },
-      { size: '10x25', label: 'Large One Car Garage', sqft: 250, price: '$145/mo', eligible: true, desc: 'Several large pieces of furniture, appliances, motorcycles, and ATVs.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'ATV / Cycle', cls: '' }, { text: 'Only 1 Left', cls: 'unit-tag-urgent' }] },
-      { size: '10x30', label: 'Full House',           sqft: 300, price: '$155/mo', eligible: true, desc: 'A boat or the contents of a full house with drive-up access.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Boat OK', cls: '' }, { text: 'Only 1 Left', cls: 'unit-tag-urgent' }] }
+      { size: '10x25', label: 'Large One Car Garage', sqft: 250, price: '$145/mo', eligible: true, desc: 'Several large pieces of furniture, appliances, motorcycles, and ATVs.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'ATV / Cycle', cls: '' }] },
+      { size: '10x30', label: 'Full House',           sqft: 300, price: '$155/mo', eligible: true, desc: 'A boat or the contents of a full house with drive-up access.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Boat OK', cls: '' }] }
     ]
   },
 
@@ -67,18 +67,18 @@ const PROMOS = {
     discountMonths: 2,
     crossSellTemplate: 'Need this size today? Our {location} location at {address} has availability &mdash; <strong>{offer}</strong>.',
     sizes: [
-      { size: '5x10',  label: 'Large Closet',         sqft: 50,  price: '$65/mo',  eligible: true,  desc: 'Bed frame, couch, and washing machine with room to spare.', tags: [{ text: 'Insulated', cls: '' }, { text: '24/7 Camera', cls: '' }, { text: 'Only 3 Left', cls: 'unit-tag-urgent' }] },
+      { size: '5x10',  label: 'Large Closet',         sqft: 50,  price: '$65/mo',  eligible: true,  desc: 'Bed frame, couch, and washing machine with room to spare.', tags: [{ text: 'Insulated', cls: '' }, { text: '24/7 Camera', cls: '' }] },
       { size: '10x10', label: 'Average Bedroom',      sqft: 100, price: '$75/mo',  eligible: true,  desc: 'Larger cabinets and several appliances. Secure gate access.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Secure Gate', cls: '' }, { text: 'Available', cls: 'unit-tag-avail' }] },
       { size: '10x15', label: 'Large Bedroom',        sqft: 150, price: '$85/mo',  eligible: true,  desc: 'Fits a one-bedroom house: table, couch, cabinets, appliances.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Insulated', cls: '' }, { text: 'Available', cls: 'unit-tag-avail' }] },
       { size: '10x20', label: 'Single Car Garage',    sqft: 200, price: '$115/mo', eligible: true, desc: 'Large appliances, furniture, mattresses, or a small vehicle.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Vehicle OK', cls: '' }, { text: 'Available', cls: 'unit-tag-avail' }] },
-      { size: '15x30', label: 'Large House',          sqft: 450, price: '$190/mo', eligible: false, desc: 'RV, boat, or full large-house contents with drive-up access.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'RV / Boat', cls: '' }, { text: 'Waitlist', cls: 'unit-tag-urgent' }] },
-      { size: '15x40', label: 'Small Warehouse',      sqft: 600, price: '$250/mo', eligible: false, noPromo: true, desc: 'Contractor storage: equipment, inventory, or a full workshop. Regular rate.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Commercial', cls: '' }, { text: 'Only 1 Left', cls: 'unit-tag-urgent' }] },
-      { size: '20x40', label: 'Industrial Warehouse', sqft: 800, price: '$350/mo', eligible: false, desc: 'Large-scale commercial and industrial storage, fully monitored.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Industrial', cls: '' }, { text: 'Waitlist', cls: 'unit-tag-urgent' }] }
+      { size: '15x30', label: 'Large House',          sqft: 450, price: '$190/mo', eligible: false, desc: 'RV, boat, or full large-house contents with drive-up access.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'RV / Boat', cls: '' }] },
+      { size: '15x40', label: 'Small Warehouse',      sqft: 600, price: '$250/mo', eligible: false, noPromo: true, desc: 'Contractor storage: equipment, inventory, or a full workshop. Regular rate.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Commercial', cls: '' }] },
+      { size: '20x40', label: 'Industrial Warehouse', sqft: 800, price: '$350/mo', eligible: false, desc: 'Large-scale commercial and industrial storage, fully monitored.', tags: [{ text: 'Drive-Up', cls: '' }, { text: 'Industrial', cls: '' }] }
     ]
   }
 };
 
-const PROMO_FINE_PRINT = 'Offer valid at this location only. Cannot be combined with other offers, including military discount. Deposits and reservations at regular rates. New rentals only. Rent online at the regular rate and our team applies your discount &mdash; or mention the code when we call or text.';
+const PROMO_FINE_PRINT = 'Offer valid at this location only. Cannot be combined with other offers, including military discount. Deposits and reservations at regular rates. New rentals only. Rent at the regular rate; your discount is credited after move-in &mdash; or mention the code when we call or text.';
 
 /* Google Ads conversion label for lead-form submissions (separate from the
    portal-click label). Leave empty until the "phone lead" conversion action
@@ -200,8 +200,8 @@ function initPromoPage(pageKey, sisterKey) {
   }
   if (el('promo-hero-sub')) {
     el('promo-hero-sub').textContent = active
-      ? 'Get ' + promo.offerText.toLowerCase() + ' on 5×10 through 10×20 units with code ' + promo.promoCode + '. Drive-up access, free lock included, no hidden fees. Rent online and move in today.'
-      : 'Drive-up access, 24/7 security cameras, free lock included. No long-term contracts, no hidden fees. Rent online and move in today.';
+      ? 'Get ' + promo.offerText.toLowerCase() + ' on 5×10 through 10×20 units with code ' + promo.promoCode + '. Drive-up access, free lock included, one-time $15 setup fee. Rent online and move in today.'
+      : 'Drive-up access, 24/7 security cameras, free lock included. No long-term contracts; one-time $15 setup fee. Rent online and move in today.';
   }
 
   // Quick-quote card
@@ -226,7 +226,7 @@ function initPromoPage(pageKey, sisterKey) {
         regEl.textContent = '$' + regular + '/mo';
         dispEl.style.color = 'var(--green)';
         dispEl.textContent = promoMoney(regular * (1 - promoSizeRate(promo, s))) + '/mo';
-        moEl.innerHTML = promoDurationText(promo) + ' &bull; then $' + regular + '/mo &bull; code ' + promo.promoCode;
+        moEl.innerHTML = promoDurationText(promo) + ' &bull; then $' + regular + '/mo &bull; code ' + promo.promoCode + ' &bull; rent at $' + regular + '/mo, discount credited after move-in';
       } else {
         regEl.style.display = 'none';
         dispEl.style.color = 'var(--orange)';
@@ -253,7 +253,7 @@ function initPromoPage(pageKey, sisterKey) {
         : '<div class="unit-price">$' + regular + '</div><span class="unit-price-mo">/month</span>';
 
       var badgeHtml = promoted
-        ? '<div class="unit-promo">' + promoSizeOfferText(promo, s) + ' &bull; Code ' + promo.promoCode + '</div>'
+        ? '<div class="unit-promo">' + promoSizeOfferText(promo, s) + ' &bull; Code ' + promo.promoCode + ' &bull; credited after move-in</div>'
         : (active && !s.eligible && !s.noPromo
           ? '<div class="unit-waitlist-label">High demand &mdash; join the waitlist</div>'
           : '');
@@ -266,7 +266,7 @@ function initPromoPage(pageKey, sisterKey) {
 
       var ctaHtml = (active && !s.eligible && !s.noPromo)
         ? '<a href="' + promo.portalUrl + '" onclick="return gtag_report_conversion(\'' + promo.portalUrl + '\');" class="unit-waitlist">Join Waitlist</a>'
-        : '<a href="' + promo.portalUrl + '" onclick="return gtag_report_conversion(\'' + promo.portalUrl + '\');" class="unit-rent">' + (promoted ? 'Claim Deal' : 'Rent Now') + '</a>';
+        : '<a href="' + promo.portalUrl + '" onclick="return gtag_report_conversion(\'' + promo.portalUrl + '\');" class="unit-rent">' + (promoted ? 'Rent now at $' + regular + '/mo' : 'Rent Now') + '</a>';
 
       return '<div class="unit-card">' +
         '<div class="unit-card-top">' +
@@ -284,6 +284,11 @@ function initPromoPage(pageKey, sisterKey) {
         '</div>' +
       '</div>';
     }).join('');
+    // Required charges beyond rent, always shown (promo or not). Owner 2026-10-30:
+    // $15 one-time setup fee per customer; tenant protection required on every
+    // rental ($9 / $14 / $24 per month) unless the tenant shows their own policy.
+    grid.insertAdjacentHTML('afterend',
+      '<p class="promo-fine-print unit-fees-note">Plus a one-time $15 setup fee and required tenant protection from $9/mo (or use your own policy).</p>');
   }
 
   // 3. Fine print — shown only while the promo is live.
